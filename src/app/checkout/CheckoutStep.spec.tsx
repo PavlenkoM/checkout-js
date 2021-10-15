@@ -193,7 +193,7 @@ describe('CheckoutStep', () => {
             .toHaveLength(0);
     });
 
-    it('change isClosed for mobile', () => {
+    it('changes isClosed for mobile', () => {
         isMobile = true;
         isMobileView.mockImplementation(() => isMobile);
 
