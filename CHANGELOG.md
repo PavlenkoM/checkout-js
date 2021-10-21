@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.175.3-alpha.1634817228779](https://github.com/bigcommerce/checkout-js/compare/v1.175.2...v1.175.3-alpha.1634817228779) (2021-10-21)
+
+
+### Bug Fixes
+
+* **checkout:** CHECKOUT-5961 Screen reader does not announce error messages and order confirmation messages during checkout ([b6912bb](https://github.com/bigcommerce/checkout-js/commit/b6912bb946237b7222f69b40174155d7862f0b50))
+* **payment:** BOLT-74 bolt checkout button on mobile ([df2409e](https://github.com/bigcommerce/checkout-js/commit/df2409ea361e3979a53a7e1e59e07a53fed36c01))
+* **payment:** BOLT-74 bolt checkout button on mobile ([de29360](https://github.com/bigcommerce/checkout-js/commit/de29360da6a3c7ff00e098e33007868fe7dcc1ac))
+
 ### [1.175.2](https://github.com/bigcommerce/checkout-js/compare/v1.175.1...v1.175.2) (2021-10-08)
 
 ### [1.175.1](https://github.com/bigcommerce/checkout-js/compare/v1.175.0...v1.175.1) (2021-10-07)
