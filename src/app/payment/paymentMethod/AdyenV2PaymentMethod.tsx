@@ -48,6 +48,7 @@ const AdyenV2PaymentMethod: FunctionComponent<AdyenPaymentMethodProps> = ({
     const adyenOptions: AdyenOptions = {
         [AdyenV2PaymentMethodType.scheme]: {
             hasHolderName: true,
+            holderNameRequired: true,
         },
         [AdyenV2PaymentMethodType.bcmc]: {
             hasHolderName: false,
