@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.184.3-alpha.1639931764391](https://github.com/bigcommerce/checkout-js/compare/v1.184.2...v1.184.3-alpha.1639931764391) (2021-12-19)
+
+
+### Bug Fixes
+
+* **payment:** ADYEN-296 Card fields validation ([11b8ab9](https://github.com/bigcommerce/checkout-js/commit/11b8ab98a12d409cd7530f320907753b2efc9aea))
+
+
+### Code Refactoring
+
+* **payment:** INT-1866 Update Visa Checkout to Visa SRC ([#762](https://github.com/bigcommerce/checkout-js/issues/762)) ([814b461](https://github.com/bigcommerce/checkout-js/commit/814b4613f5fe3557d89c11cefe1e9fb4b703ae24))
+
 ### [1.184.2](https://github.com/bigcommerce/checkout-js/compare/v1.184.1...v1.184.2) (2021-12-08)
 
 ### [1.184.1](https://github.com/bigcommerce/checkout-js/compare/v1.184.0...v1.184.1) (2021-12-07)
