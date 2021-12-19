@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.187.1-alpha.1639940760456](https://github.com/bigcommerce/checkout-js/compare/v1.187.0...v1.187.1-alpha.1639940760456) (2021-12-19)
+
+
+### Bug Fixes
+
+* **payment:** ADYEN-296 Card fields validation ([7b80f37](https://github.com/bigcommerce/checkout-js/commit/7b80f37cb585e1080439351072e4c2a1e0d29af0))
+
 ## [1.187.0](https://github.com/bigcommerce/checkout-js/compare/v1.186.0...v1.187.0) (2021-12-16)
 
 
