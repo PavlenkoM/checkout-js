@@ -9,6 +9,7 @@ import {
 } from '@bigcommerce/checkout-sdk';
 import { mount, ReactWrapper } from 'enzyme';
 import React, { FunctionComponent } from 'react';
+import AnalyticsProviderMock from '../analytics/AnalyticsProvider.mock';
 
 import { getBillingAddress } from '../billing/billingAddresses.mock';
 import { CheckoutProvider } from '../checkout';
@@ -68,7 +69,9 @@ describe('Customer', () => {
         CustomerTest = (props) => (
             <CheckoutProvider checkoutService={checkoutService}>
                 <LocaleContext.Provider value={localeContext}>
-                    <Customer {...props} />
+                    <AnalyticsProviderMock>
+                        <Customer {...props} />
+                    </AnalyticsProviderMock>
                 </LocaleContext.Provider>
             </CheckoutProvider>
         );

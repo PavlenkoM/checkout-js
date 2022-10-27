@@ -5,6 +5,7 @@ import {
     CustomerInitializeOptions,
     CustomerRequestOptions,
     ExecutePaymentMethodCheckoutOptions,
+    CheckoutPaymentMethodExecutedOptions,
     FormField,
     GuestCredentials,
     SignInEmail,
@@ -30,6 +31,7 @@ import GuestForm, { GuestFormValues } from './GuestForm';
 import LoginForm from './LoginForm';
 import mapCreateAccountFromFormValues from './mapCreateAccountFromFormValues';
 import StripeGuestForm from './StripeGuestForm';
+import { withAnalytics, WithAnalyticsProps } from '../analytics';
 
 export interface CustomerProps {
     viewType: CustomerViewType;
@@ -91,7 +93,7 @@ export interface CustomerState {
     hasRequestedLoginEmail: boolean;
 }
 
-class Customer extends Component<CustomerProps & WithCheckoutCustomerProps, CustomerState> {
+class Customer extends Component<CustomerProps & WithCheckoutCustomerProps & WithAnalyticsProps, CustomerState> {
     state: CustomerState = {
         isEmailLoginFormOpen: false,
         isReady: false,
@@ -455,7 +457,9 @@ class Customer extends Component<CustomerProps & WithCheckoutCustomerProps, Cust
     };
 
     private handleChangeEmail: (email: string) => void = (email) => {
+        const { analyticsTracker } = this.props;
         this.draftEmail = email;
+        analyticsTracker.customerEmailEntry(email);
     };
 
     private handleShowLogin: () => void = () => {
@@ -468,18 +472,24 @@ class Customer extends Component<CustomerProps & WithCheckoutCustomerProps, Cust
         const {
             executePaymentMethodCheckout,
             onContinueAsGuest = noop,
-            providerWithCustomCheckout,
+            providerWithCustomCheckout
         } = this.props;
 
         if (providerWithCustomCheckout) {
             await executePaymentMethodCheckout({
                 methodId: providerWithCustomCheckout,
                 continueWithCheckoutCallback: onContinueAsGuest,
+                checkoutPaymentMethodExecuted: (payload) => this.checkoutPaymentMethodExecuted(payload)
             });
         } else {
             onContinueAsGuest();
         }
     };
+
+    private checkoutPaymentMethodExecuted(payload?: CheckoutPaymentMethodExecutedOptions) {
+        const { analyticsTracker } = this.props;
+        analyticsTracker.customerPaymentMethodExecuted(payload);
+    }
 }
 
 export function mapToWithCheckoutCustomerProps({
@@ -576,4 +586,4 @@ export function mapToWithCheckoutCustomerProps({
     };
 }
 
-export default withCheckout(mapToWithCheckoutCustomerProps)(Customer);
+export default withAnalytics(withCheckout(mapToWithCheckoutCustomerProps)(Customer));

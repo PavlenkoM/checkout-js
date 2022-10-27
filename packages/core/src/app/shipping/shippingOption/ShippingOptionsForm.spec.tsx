@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import { Formik } from 'formik';
 import { noop } from 'lodash';
 import React from 'react';
+import AnalyticsProviderMock from '../../analytics/AnalyticsProvider.mock';
 
 import { getCart } from '../../cart/carts.mock';
 import { TranslatedString } from '../../locale';
@@ -37,11 +38,19 @@ describe('ShippingOptions Component', () => {
         isLoading: jest.fn(() => false),
     };
 
+    const TestWrap: React.FC = ({ children}) => (
+        <AnalyticsProviderMock>
+            <Formik initialValues={{}} onSubmit={noop}>
+                { children }
+            </Formik>
+        </AnalyticsProviderMock>
+    );
+
     it('renders sorted options for all consignments when multi-shipping', () => {
         const component = mount(
-            <Formik initialValues={{}} onSubmit={noop}>
+            <TestWrap>
                 <ShippingOptionsForm {...defaultProps} />
-            </Formik>,
+            </TestWrap>,
         );
 
         expect(component.find(ShippingOptionsList)).toHaveLength(2);
@@ -56,9 +65,9 @@ describe('ShippingOptions Component', () => {
         };
 
         mount(
-            <Formik initialValues={{}} onSubmit={noop}>
+            <TestWrap>
                 <ShippingOptionsForm {...defaultProps} isMultiShippingMode={false} />
-            </Formik>,
+            </TestWrap>,
         );
 
         const selectors = {
@@ -81,14 +90,14 @@ describe('ShippingOptions Component', () => {
 
     it('renders enter shipping address when no consignments', () => {
         const component = mount(
-            <Formik initialValues={{}} onSubmit={noop}>
+            <TestWrap>
                 <ShippingOptionsForm
                     {...defaultProps}
                     consignments={[]}
                     isLoading={() => false}
                     isMultiShippingMode={false}
                 />
-            </Formik>,
+            </TestWrap>,
         );
 
         expect(component.find(TranslatedString).prop('id')).toBe(
@@ -98,14 +107,14 @@ describe('ShippingOptions Component', () => {
 
     it('renders select shipping address when no consignments and amazon shipping', () => {
         const component = mount(
-            <Formik initialValues={{}} onSubmit={noop}>
+            <TestWrap>
                 <ShippingOptionsForm
                     {...defaultProps}
                     consignments={[]}
                     isLoading={() => false}
                     methodId="amazon"
                 />
-            </Formik>,
+            </TestWrap>,
         );
 
         expect(component.find(TranslatedString).prop('id')).toBe(
@@ -115,7 +124,7 @@ describe('ShippingOptions Component', () => {
 
     it('renders invalid shipping when no shipping options available', () => {
         const component = mount(
-            <Formik initialValues={{}} onSubmit={noop}>
+            <TestWrap>
                 <ShippingOptionsForm
                     {...defaultProps}
                     consignments={[
@@ -126,7 +135,7 @@ describe('ShippingOptions Component', () => {
                     ]}
                     isMultiShippingMode={false}
                 />
-            </Formik>,
+            </TestWrap>,
         );
 
         expect(component.find('.shippingOptions-panel-message').text()).toEqual(

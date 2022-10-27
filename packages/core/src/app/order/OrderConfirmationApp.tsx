@@ -1,16 +1,10 @@
-import {
-    BodlService,
-    createBodlService,
-    createCheckoutService,
-    createEmbeddedCheckoutMessenger,
-    createStepTracker,
-    StepTracker,
-} from '@bigcommerce/checkout-sdk';
+import { createCheckoutService, createEmbeddedCheckoutMessenger } from '@bigcommerce/checkout-sdk';
 import { BrowserOptions } from '@sentry/browser';
 import React, { Component, ReactNode } from 'react';
 import ReactModal from 'react-modal';
 
 import '../../scss/App.scss';
+import { AnalyticsProvider } from '../analytics';
 import { CheckoutProvider } from '../checkout';
 import { createErrorLogger, ErrorBoundary, ErrorLogger } from '../common/error';
 import { createEmbeddedCheckoutStylesheet } from '../embeddedCheckout';
@@ -58,15 +52,15 @@ class OrderConfirmationApp extends Component<OrderConfirmationAppProps> {
             <ErrorBoundary logger={this.errorLogger}>
                 <LocaleProvider checkoutService={this.checkoutService}>
                     <CheckoutProvider checkoutService={this.checkoutService}>
-                        <OrderConfirmation
-                            {...this.props}
-                            createAccount={this.createAccount}
-                            createBodlService={this.createBodlService}
-                            createEmbeddedMessenger={createEmbeddedCheckoutMessenger}
-                            createStepTracker={this.createStepTracker}
-                            embeddedStylesheet={this.embeddedStylesheet}
-                            errorLogger={this.errorLogger}
-                        />
+                        <AnalyticsProvider checkoutService={ this.checkoutService }>
+                            <OrderConfirmation
+                                {...this.props}
+                                createAccount={this.createAccount}
+                                createEmbeddedMessenger={createEmbeddedCheckoutMessenger}
+                                embeddedStylesheet={this.embeddedStylesheet}
+                                errorLogger={this.errorLogger}
+                            />
+                        </AnalyticsProvider>
                     </CheckoutProvider>
                 </LocaleProvider>
             </ErrorBoundary>
@@ -85,14 +79,6 @@ class OrderConfirmationApp extends Component<OrderConfirmationAppProps> {
             password,
             confirmPassword,
         });
-    };
-
-    private createStepTracker: () => StepTracker = () => {
-        return createStepTracker(this.checkoutService);
-    };
-
-    private createBodlService: () => BodlService = () => {
-        return createBodlService(this.checkoutService.subscribe);
     };
 }
 

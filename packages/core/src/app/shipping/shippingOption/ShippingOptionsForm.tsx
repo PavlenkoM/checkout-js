@@ -6,6 +6,7 @@ import React, { PureComponent, ReactNode } from 'react';
 import { ChecklistSkeleton } from '@bigcommerce/checkout/ui';
 
 import { StaticAddress } from '../../address';
+import { withAnalytics, WithAnalyticsProps } from '../../analytics';
 import { TranslatedString } from '../../locale';
 import getRecommendedShippingOption from '../getRecommendedShippingOption';
 import StaticConsignmentItemList from '../StaticConsignmentItemList';
@@ -14,7 +15,7 @@ import { ShippingOptionsProps, WithCheckoutShippingOptionsProps } from './Shippi
 import './ShippingOptionsForm.scss';
 import ShippingOptionsList from './ShippingOptionsList';
 
-export type ShippingOptionsFormProps = ShippingOptionsProps & WithCheckoutShippingOptionsProps;
+export type ShippingOptionsFormProps = ShippingOptionsProps & WithCheckoutShippingOptionsProps & WithAnalyticsProps;
 
 class ShippingOptionsForm extends PureComponent<
     ShippingOptionsFormProps & FormikProps<ShippingOptionsFormValues>
@@ -25,6 +26,18 @@ class ShippingOptionsForm extends PureComponent<
         const { subscribeToConsignments } = this.props;
 
         this.unsubscribe = subscribeToConsignments(this.selectDefaultShippingOptions);
+    }
+
+    componentDidUpdate(): void {
+        const {
+            analyticsTracker,
+            consignments,
+            shouldShowShippingOptions
+        } = this.props;
+        
+        if (consignments?.length && shouldShowShippingOptions) {
+            analyticsTracker.showShippingMethods();
+        }
     }
 
     componentWillUnmount(): void {
@@ -42,10 +55,10 @@ class ShippingOptionsForm extends PureComponent<
             isLoading,
             shouldShowShippingOptions,
             invalidShippingMessage,
-            methodId,
+            methodId
         } = this.props;
 
-        if (!consignments || !consignments.length || !shouldShowShippingOptions) {
+        if (!consignments?.length || !shouldShowShippingOptions) {
             return (
                 <ChecklistSkeleton
                     additionalClassName="shippingOptions-skeleton"
@@ -166,7 +179,7 @@ export interface ShippingOptionsFormValues {
     };
 }
 
-export default withFormik<ShippingOptionsFormProps, ShippingOptionsFormValues>({
+export default withAnalytics(withFormik<ShippingOptionsFormProps, ShippingOptionsFormValues>({
     handleSubmit: noop,
     mapPropsToValues({ consignments }) {
         const shippingOptionIds: { [id: string]: string } = {};
@@ -179,4 +192,4 @@ export default withFormik<ShippingOptionsFormProps, ShippingOptionsFormValues>({
 
         return { shippingOptionIds };
     },
-})(ShippingOptionsForm);
+})(ShippingOptionsForm));

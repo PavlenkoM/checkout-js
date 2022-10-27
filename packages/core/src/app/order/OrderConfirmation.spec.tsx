@@ -1,16 +1,17 @@
 import {
-    BodlService,
     CheckoutSelectors,
     CheckoutService,
     createCheckoutService,
     createEmbeddedCheckoutMessenger,
     EmbeddedCheckoutMessenger,
-    StepTracker,
 } from '@bigcommerce/checkout-sdk';
 import { mount, ReactWrapper } from 'enzyme';
 import React, { FunctionComponent } from 'react';
 import { act } from 'react-dom/test-utils';
 
+import { WithAnalyticsProps } from '../analytics';
+import { AnalyticsEvents } from '../analytics/AnalyticsContext';
+import AnalyticsProviderMock from '../analytics/AnalyticsProvider.mock';
 import { CheckoutProvider } from '../checkout';
 import { createErrorLogger } from '../common/error';
 import { getStoreConfig } from '../config/config.mock';
@@ -27,22 +28,18 @@ import ThankYouHeader from './ThankYouHeader';
 describe('OrderConfirmation', () => {
     let checkoutService: CheckoutService;
     let checkoutState: CheckoutSelectors;
-    let defaultProps: OrderConfirmationProps;
-    let stepTracker: StepTracker;
-    let bodlService: BodlService;
-    let ComponentTest: FunctionComponent<OrderConfirmationProps>;
+    let defaultProps: OrderConfirmationProps & WithAnalyticsProps;
+    let ComponentTest: FunctionComponent<OrderConfirmationProps & WithAnalyticsProps>;
     let embeddedMessengerMock: EmbeddedCheckoutMessenger;
     let orderConfirmation: ReactWrapper;
+    let analyticsTracker: Partial<AnalyticsEvents>;
 
     beforeEach(() => {
         checkoutService = createCheckoutService();
         checkoutState = checkoutService.getState();
-        stepTracker = {
-            trackOrderComplete: jest.fn(),
-        } as unknown as StepTracker;
-        bodlService = {
-            orderPurchased: jest.fn(),
-        } as unknown as BodlService;
+        analyticsTracker = {
+            orderPurchased: jest.fn()
+        };
         embeddedMessengerMock = createEmbeddedCheckoutMessenger({
             parentOrigin: getStoreConfig().links.siteLink,
         });
@@ -59,16 +56,17 @@ describe('OrderConfirmation', () => {
             containerId: 'app',
             createAccount: jest.fn(() => Promise.resolve({} as CreatedCustomer)),
             createEmbeddedMessenger: () => embeddedMessengerMock,
-            createStepTracker: () => stepTracker,
-            createBodlService: () => bodlService,
             embeddedStylesheet: createEmbeddedCheckoutStylesheet(),
             errorLogger: createErrorLogger(),
             orderId: 105,
+            analyticsTracker
         };
 
         ComponentTest = (props) => (
             <CheckoutProvider checkoutService={checkoutService}>
-                <OrderConfirmation {...props} />
+                <AnalyticsProviderMock>
+                    <OrderConfirmation {...props} />
+                </AnalyticsProviderMock>
             </CheckoutProvider>
         );
     });
@@ -83,19 +81,7 @@ describe('OrderConfirmation', () => {
 
         await new Promise((resolve) => process.nextTick(resolve));
 
-        expect(stepTracker.trackOrderComplete).toHaveBeenCalled();
-    });
-
-    it('calls bodl event order complete triggered', async () => {
-        jest.spyOn(checkoutState.data, 'getConfig').mockReturnValue(undefined);
-
-        const component = mount(<ComponentTest {...defaultProps} />);
-
-        component.update();
-
-        await new Promise((resolve) => process.nextTick(resolve));
-
-        expect(bodlService.orderPurchased).toHaveBeenCalled();
+        expect(analyticsTracker.orderPurchased).toHaveBeenCalled();
     });
 
     it('loads passed order ID', () => {
