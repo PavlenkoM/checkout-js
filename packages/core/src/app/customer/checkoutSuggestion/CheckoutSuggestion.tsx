@@ -5,7 +5,8 @@ import {
     ExecutePaymentMethodCheckoutOptions,
 } from '@bigcommerce/checkout-sdk';
 import React, { FunctionComponent, memo } from 'react';
-import { withAnalytics, WithAnalyticsProps } from '../../analytics';
+
+import { useAnalytics } from '@bigcommerce/checkout/analytics-integration';
 
 import { CheckoutContextProps, withCheckout } from '../../checkout';
 import { PaymentMethodId } from '../../payment/paymentMethod';
@@ -27,13 +28,14 @@ export interface WithCheckoutSuggestionsProps {
 }
 
 const CheckoutSuggestion: FunctionComponent<
-    WithCheckoutSuggestionsProps & CheckoutSuggestionProps & WithAnalyticsProps
+    WithCheckoutSuggestionsProps & CheckoutSuggestionProps
 > = ({
     providerWithCustomCheckout,
     executePaymentMethodCheckout,
-    analyticsTracker,
     ...rest
 }) => {
+    const { analyticsTracker } = useAnalytics();
+
     const handleExecutePaymentMethodCheckout = (options: ExecutePaymentMethodCheckoutOptions) => {
         analyticsTracker.customerSuggestionExecute();
         return executePaymentMethodCheckout(options);
@@ -75,4 +77,4 @@ const mapToCheckoutSuggestionProps = ({
     };
 };
 
-export default withAnalytics(withCheckout(mapToCheckoutSuggestionProps)(memo(CheckoutSuggestion)));
+export default withCheckout(mapToCheckoutSuggestionProps)(memo(CheckoutSuggestion));

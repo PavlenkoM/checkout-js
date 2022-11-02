@@ -3,8 +3,9 @@ import { BrowserOptions } from '@sentry/browser';
 import React, { Component, ReactNode } from 'react';
 import ReactModal from 'react-modal';
 
+import { AnalyticsProvider } from '@bigcommerce/checkout/analytics-integration';
+
 import '../../scss/App.scss';
-import { AnalyticsProvider } from '../analytics';
 import { CheckoutProvider } from '../checkout';
 import { createErrorLogger, ErrorBoundary, ErrorLogger } from '../common/error';
 import { createEmbeddedCheckoutStylesheet } from '../embeddedCheckout';

@@ -9,9 +9,9 @@ import { mount, ReactWrapper } from 'enzyme';
 import React, { FunctionComponent } from 'react';
 import { act } from 'react-dom/test-utils';
 
+import { AnalyticsEvents, AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
+
 import { WithAnalyticsProps } from '../analytics';
-import { AnalyticsEvents } from '../analytics/AnalyticsContext';
-import AnalyticsProviderMock from '../analytics/AnalyticsProvider.mock';
 import { CheckoutProvider } from '../checkout';
 import { createErrorLogger } from '../common/error';
 import { getStoreConfig } from '../config/config.mock';

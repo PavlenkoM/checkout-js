@@ -11,9 +11,9 @@ import { noop, omit } from 'lodash';
 import React, { FunctionComponent } from 'react';
 import { act } from 'react-dom/test-utils';
 
+import { AnalyticsEvents, AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
+
 import { WithAnalyticsProps } from '../analytics';
-import { AnalyticsEvents } from '../analytics/AnalyticsContext';
-import AnalyticsProviderMock from '../analytics/AnalyticsProvider.mock';
 import { BillingProps } from '../billing';
 import Billing from '../billing/Billing';
 import { getCart } from '../cart/carts.mock';

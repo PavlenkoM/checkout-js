@@ -10,7 +10,8 @@ import { mount, ReactWrapper } from 'enzyme';
 import { EventEmitter } from 'events';
 import { find, merge, noop } from 'lodash';
 import React, { FunctionComponent } from 'react';
-import AnalyticsProviderMock from '../analytics/AnalyticsProvider.mock';
+
+import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
 
 import { getCart } from '../cart/carts.mock';
 import { CheckoutProvider } from '../checkout';

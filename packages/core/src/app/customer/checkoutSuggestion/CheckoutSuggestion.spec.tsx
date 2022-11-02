@@ -5,7 +5,8 @@ import {
 } from '@bigcommerce/checkout-sdk';
 import { mount, render } from 'enzyme';
 import React, { FunctionComponent } from 'react';
-import AnalyticsProviderMock from '../../analytics/AnalyticsProvider.mock';
+
+import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
 
 import { CheckoutProvider } from '../../checkout';
 import { getCheckout } from '../../checkout/checkouts.mock';

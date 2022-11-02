@@ -3,7 +3,8 @@ import { mount } from 'enzyme';
 import { Formik } from 'formik';
 import { noop } from 'lodash';
 import React from 'react';
-import AnalyticsProviderMock from '../../analytics/AnalyticsProvider.mock';
+
+import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
 
 import { getCart } from '../../cart/carts.mock';
 import { TranslatedString } from '../../locale';
