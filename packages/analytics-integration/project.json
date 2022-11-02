@@ -20,7 +20,8 @@
         "coverage/packages/analytics-integration"
       ],
       "options": {
-        "jestConfig": "packages/analytics-integration/jest.config.js"
+        "jestConfig": "packages/analytics-integration/jest.config.js",
+        "passWithNoTests": true
       }
     }
   },
