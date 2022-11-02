@@ -67,6 +67,18 @@ describe('AnalyticsProvider', () => {
         jest.spyOn(CheckoutSdk, 'createBodlService').mockImplementation(() => bodlServiceMock);
     });
 
+    it('useAnalytics hook without AnalyticsContext', () => {
+        let errorMessage = '';
+        try {
+            mount(<AnalyticsProviderChildrenMock eventName="checkoutBegin" />)
+        } catch (err) {
+            errorMessage = err.message;
+        }
+        expect(errorMessage).toBe('useAnalytics must be used within an <AnalyticsProvider>');
+        expect(stepTrackerMock.trackCheckoutStarted).not.toHaveBeenCalled();
+        expect(bodlServiceMock.checkoutBegin).not.toHaveBeenCalled();
+    });
+
     it('track checkout begin', () => {
         mount(<TestComponent eventName="checkoutBegin" />);
 
