@@ -3,10 +3,11 @@ import { FormikProps, withFormik } from 'formik';
 import { noop } from 'lodash';
 import React, { PureComponent, ReactNode } from 'react';
 
+import { AnalyticsContextProps } from '@bigcommerce/checkout/analytics';
 import { ChecklistSkeleton } from '@bigcommerce/checkout/ui';
 
 import { StaticAddress } from '../../address';
-import { withAnalytics, WithAnalyticsProps } from '../../analytics';
+import { withAnalytics } from '../../analytics';
 import { TranslatedString } from '../../locale';
 import getRecommendedShippingOption from '../getRecommendedShippingOption';
 import StaticConsignmentItemList from '../StaticConsignmentItemList';
@@ -15,7 +16,7 @@ import { ShippingOptionsProps, WithCheckoutShippingOptionsProps } from './Shippi
 import './ShippingOptionsForm.scss';
 import ShippingOptionsList from './ShippingOptionsList';
 
-export type ShippingOptionsFormProps = ShippingOptionsProps & WithCheckoutShippingOptionsProps & WithAnalyticsProps;
+export type ShippingOptionsFormProps = ShippingOptionsProps & WithCheckoutShippingOptionsProps & AnalyticsContextProps;
 
 class ShippingOptionsForm extends PureComponent<
     ShippingOptionsFormProps & FormikProps<ShippingOptionsFormValues>

@@ -1,5 +1,5 @@
 module.exports = {
-    displayName: 'analytics-integration',
+    displayName: 'analytics',
     preset: '../../jest.preset.js',
     globals: {
         'ts-jest': {
@@ -11,5 +11,5 @@ module.exports = {
         '^.+\\.[tj]sx?$': 'ts-jest'
     },
     setupFilesAfterEnv: ['../../jest-setup.ts'],
-    coverageDirectory: '../../coverage/packages/analytics-integration'
+    coverageDirectory: '../../coverage/packages/analytics'
 };

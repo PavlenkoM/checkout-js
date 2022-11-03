@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import { noop } from 'lodash';
 import React from 'react';
 
-import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
+import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics';
 
 import { getCart } from '../../cart/carts.mock';
 import { TranslatedString } from '../../locale';

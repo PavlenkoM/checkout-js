@@ -10,7 +10,9 @@ import classNames from 'classnames';
 import DOMPurify from 'dompurify';
 import React, { Component, lazy, ReactNode } from 'react';
 
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
+import { AnalyticsContextProps } from '@bigcommerce/checkout/analytics';
+
+import { withAnalytics } from '../analytics';
 import { CheckoutContextProps, withCheckout } from '../checkout';
 import { ErrorLogger, ErrorModal } from '../common/error';
 import { retry } from '../common/utility';
@@ -82,7 +84,7 @@ interface WithCheckoutOrderConfirmationProps {
 }
 
 class OrderConfirmation extends Component<
-    OrderConfirmationProps & WithCheckoutOrderConfirmationProps & WithAnalyticsProps,
+    OrderConfirmationProps & WithCheckoutOrderConfirmationProps & AnalyticsContextProps,
     OrderConfirmationState
 > {
     state: OrderConfirmationState = {};

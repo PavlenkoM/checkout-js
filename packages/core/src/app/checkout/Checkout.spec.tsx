@@ -11,9 +11,8 @@ import { noop, omit } from 'lodash';
 import React, { FunctionComponent } from 'react';
 import { act } from 'react-dom/test-utils';
 
-import { AnalyticsEvents, AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
+import { AnalyticsContextProps, AnalyticsEvents, AnalyticsProviderMock } from '@bigcommerce/checkout/analytics';
 
-import { WithAnalyticsProps } from '../analytics';
 import { BillingProps } from '../billing';
 import Billing from '../billing/Billing';
 import { getCart } from '../cart/carts.mock';
@@ -47,7 +46,7 @@ describe('Checkout', () => {
     let CheckoutTest: FunctionComponent<CheckoutProps>;
     let checkoutService: CheckoutService;
     let checkoutState: CheckoutSelectors;
-    let defaultProps: CheckoutProps & WithAnalyticsProps;
+    let defaultProps: CheckoutProps & AnalyticsContextProps;
     let embeddedMessengerMock: EmbeddedCheckoutMessenger;
     let subscribeEventEmitter: EventEmitter;
     let analyticsTracker: Partial<AnalyticsEvents>;

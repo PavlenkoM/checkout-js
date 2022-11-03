@@ -26,48 +26,48 @@ const AnalyticsProvider = ({ checkoutService, children }: AnalyticsProviderProps
     const trackStepCompleted = (currentStep: string) => {
         getStepTracker().trackStepCompleted(currentStep);
         getBodlService().stepCompleted(currentStep);
-    }
+    };
 
     const trackStepViewed = (step: string) => {
         getStepTracker().trackStepViewed(step);
-    }
+    };
 
     const orderPurchased = () => {
         getStepTracker().trackOrderComplete();
         getBodlService().orderPurchased();
-    }
+    };
 
     const customerEmailEntry = (email: string) => {
         getBodlService().customerEmailEntry(email);
-    }
+    };
 
     const customerSuggestionExecute = () => {
         getBodlService().customerSuggestionExecute();
-    }
+    };
 
     const customerPaymentMethodExecuted = (payload: BodlEventsPayload) => {
         getBodlService().customerPaymentMethodExecuted(payload);
-    }
+    };
 
     const showShippingMethods = () => {
         getBodlService().showShippingMethods();
-    }
+    };
 
     const selectedPaymentMethod = (methodName?: string) => {
         getBodlService().selectedPaymentMethod(methodName);
-    }
+    };
 
     const clickPayButton = (payload: BodlEventsPayload) => {
         getBodlService().clickPayButton(payload);
-    }
-    
+    };
+
     const paymentRejected = () => {
         getBodlService().paymentRejected();
-    }
-    
+    };
+
     const paymentComplete = () => {
         getBodlService().paymentComplete();
-    }
+    };
 
     const exitCheckout = () => {
         getBodlService().exitCheckout();

@@ -1,1 +1,1 @@
-export { default as withAnalytics, WithAnalyticsProps } from './withAnalytics';
+export { default as withAnalytics } from './withAnalytics';

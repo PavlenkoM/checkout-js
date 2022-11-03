@@ -10,10 +10,11 @@ import { compact, find, isEmpty, noop } from 'lodash';
 import React, { Component, ReactNode } from 'react';
 import { ObjectSchema } from 'yup';
 
+import { AnalyticsContextProps } from '@bigcommerce/checkout/analytics';
 import { PaymentFormValues } from '@bigcommerce/checkout/payment-integration-api';
 import { ChecklistSkeleton } from '@bigcommerce/checkout/ui';
 
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
+import { withAnalytics } from '../analytics';
 import { CheckoutContextProps, withCheckout } from '../checkout';
 import {
     ErrorLogger,
@@ -86,7 +87,7 @@ interface PaymentState {
 }
 
 class Payment extends Component<
-    PaymentProps & WithCheckoutPaymentProps & WithLanguageProps & WithAnalyticsProps,
+    PaymentProps & WithCheckoutPaymentProps & WithLanguageProps & AnalyticsContextProps,
     PaymentState
 > {
     state: PaymentState = {

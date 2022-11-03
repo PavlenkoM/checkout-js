@@ -14,9 +14,10 @@ import {
 import { noop } from 'lodash';
 import React, { Component, ReactNode } from 'react';
 
+import { AnalyticsContextProps } from '@bigcommerce/checkout/analytics';
 import { CustomerSkeleton } from '@bigcommerce/checkout/ui';
 
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
+import { withAnalytics } from '../analytics';
 import { CheckoutContextProps, withCheckout } from '../checkout';
 import CheckoutStepStatus from '../checkout/CheckoutStepStatus';
 import { isErrorWithType } from '../common/error';
@@ -93,7 +94,7 @@ export interface CustomerState {
     hasRequestedLoginEmail: boolean;
 }
 
-class Customer extends Component<CustomerProps & WithCheckoutCustomerProps & WithAnalyticsProps, CustomerState> {
+class Customer extends Component<CustomerProps & WithCheckoutCustomerProps & AnalyticsContextProps, CustomerState> {
     state: CustomerState = {
         isEmailLoginFormOpen: false,
         isReady: false,

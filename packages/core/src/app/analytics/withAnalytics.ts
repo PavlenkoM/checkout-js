@@ -1,8 +1,6 @@
-import { AnalyticsContext, AnalyticsContextProps } from '@bigcommerce/checkout/analytics-integration';
+import { AnalyticsContext } from '@bigcommerce/checkout/analytics';
 
 import { createInjectHoc } from '../common/hoc';
-
-export type WithAnalyticsProps = AnalyticsContextProps;
 
 const withAnalytics = createInjectHoc(AnalyticsContext, { displayNamePrefix: 'WithAnalytics' });
 

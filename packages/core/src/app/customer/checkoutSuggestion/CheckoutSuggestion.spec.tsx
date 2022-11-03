@@ -6,7 +6,7 @@ import {
 import { mount, render } from 'enzyme';
 import React, { FunctionComponent } from 'react';
 
-import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics-integration';
+import { AnalyticsProviderMock } from '@bigcommerce/checkout/analytics';
 
 import { CheckoutProvider } from '../../checkout';
 import { getCheckout } from '../../checkout/checkouts.mock';

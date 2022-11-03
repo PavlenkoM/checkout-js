@@ -3,7 +3,7 @@ import { BrowserOptions } from '@sentry/browser';
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 
-import { AnalyticsProvider } from '@bigcommerce/checkout/analytics-integration';
+import { AnalyticsProvider } from '@bigcommerce/checkout/analytics';
 
 import '../../scss/App.scss';
 import { createErrorLogger, ErrorBoundary, ErrorLogger } from '../common/error';

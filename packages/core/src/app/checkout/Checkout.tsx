@@ -15,9 +15,10 @@ import classNames from 'classnames';
 import { find, findIndex } from 'lodash';
 import React, { Component, lazy, ReactNode } from 'react';
 
-import { AddressFormSkeleton, ChecklistSkeleton, CustomerSkeleton } from '@bigcommerce/checkout/ui'
+import { AnalyticsContextProps } from '@bigcommerce/checkout/analytics';
+import { AddressFormSkeleton, ChecklistSkeleton, CustomerSkeleton } from '@bigcommerce/checkout/ui';
 
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
+import { withAnalytics } from '../analytics';
 import { StaticBillingAddress } from '../billing';
 import { EmptyCartMessage } from '../cart';
 import { CustomError, ErrorLogger, ErrorModal, isCustomError } from '../common/error';
@@ -150,7 +151,7 @@ export interface WithCheckoutProps {
 }
 
 class Checkout extends Component<
-    CheckoutProps & WithCheckoutProps & WithLanguageProps & WithAnalyticsProps,
+    CheckoutProps & WithCheckoutProps & WithLanguageProps & AnalyticsContextProps,
     CheckoutState
 > {
     state: CheckoutState = {
