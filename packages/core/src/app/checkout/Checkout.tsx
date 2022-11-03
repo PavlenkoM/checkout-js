@@ -17,6 +17,7 @@ import React, { Component, lazy, ReactNode } from 'react';
 
 import { AddressFormSkeleton, ChecklistSkeleton, CustomerSkeleton } from '@bigcommerce/checkout/ui'
 
+import { withAnalytics, WithAnalyticsProps } from '../analytics';
 import { StaticBillingAddress } from '../billing';
 import { EmptyCartMessage } from '../cart';
 import { CustomError, ErrorLogger, ErrorModal, isCustomError } from '../common/error';
@@ -42,7 +43,6 @@ import CheckoutSupport from './CheckoutSupport';
 import mapToCheckoutProps from './mapToCheckoutProps';
 import navigateToOrderConfirmation from './navigateToOrderConfirmation';
 import withCheckout from './withCheckout';
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
 
 const Billing = lazy(() =>
     retry(

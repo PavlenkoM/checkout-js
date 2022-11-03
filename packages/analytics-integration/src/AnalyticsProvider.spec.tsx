@@ -67,7 +67,7 @@ describe('AnalyticsProvider', () => {
         jest.spyOn(CheckoutSdk, 'createBodlService').mockImplementation(() => bodlServiceMock);
     });
 
-    it('useAnalytics hook without AnalyticsContext', () => {
+    it('throws an error when useAnalytics hook used without AnalyticsContext', () => {
         let errorMessage = '';
         try {
             mount(<AnalyticsProviderChildrenMock eventName="checkoutBegin" />)
@@ -95,7 +95,7 @@ describe('AnalyticsProvider', () => {
         expect(bodlServiceMock.stepCompleted).toHaveBeenCalledWith('stepName');
     });
 
-    it('track step completed', () => {
+    it('track step viewed', () => {
         mount(<TestComponent eventName="trackStepViewed" eventPayload="stepName" />);
 
         expect(stepTrackerMock.trackStepViewed).toHaveBeenCalledTimes(1);

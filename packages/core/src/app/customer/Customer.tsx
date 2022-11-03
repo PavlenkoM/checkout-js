@@ -16,6 +16,7 @@ import React, { Component, ReactNode } from 'react';
 
 import { CustomerSkeleton } from '@bigcommerce/checkout/ui';
 
+import { withAnalytics, WithAnalyticsProps } from '../analytics';
 import { CheckoutContextProps, withCheckout } from '../checkout';
 import CheckoutStepStatus from '../checkout/CheckoutStepStatus';
 import { isErrorWithType } from '../common/error';
@@ -31,7 +32,6 @@ import GuestForm, { GuestFormValues } from './GuestForm';
 import LoginForm from './LoginForm';
 import mapCreateAccountFromFormValues from './mapCreateAccountFromFormValues';
 import StripeGuestForm from './StripeGuestForm';
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
 
 export interface CustomerProps {
     viewType: CustomerViewType;

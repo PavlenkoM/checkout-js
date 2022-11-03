@@ -13,6 +13,7 @@ import { ObjectSchema } from 'yup';
 import { PaymentFormValues } from '@bigcommerce/checkout/payment-integration-api';
 import { ChecklistSkeleton } from '@bigcommerce/checkout/ui';
 
+import { withAnalytics, WithAnalyticsProps } from '../analytics';
 import { CheckoutContextProps, withCheckout } from '../checkout';
 import {
     ErrorLogger,
@@ -34,7 +35,6 @@ import {
     PaymentMethodId,
     PaymentMethodProviderType,
 } from './paymentMethod';
-import { withAnalytics, WithAnalyticsProps } from '../analytics';
 
 export interface PaymentProps {
     errorLogger: ErrorLogger;
