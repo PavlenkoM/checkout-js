@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.266.4-prerelease.1667557933137](https://github.com/bigcommerce/checkout-js/compare/v1.266.3...v1.266.4-prerelease.1667557933137) (2022-11-04)
+
+
+### Features
+
+* **payment:** BOLT-386 Add BODL analytics tracking events ([b876682](https://github.com/bigcommerce/checkout-js/commit/b8766821ffb1aadfb69125d08b308ce8b7fb148d))
+* **payment:** BOLT-386 Add BODL analytics tracking events ([24fec07](https://github.com/bigcommerce/checkout-js/commit/24fec07089b1bdece0adbea013793ad1b72992f1))
+* **payment:** BOLT-386 Add BODL analytics tracking events ([f00fbb3](https://github.com/bigcommerce/checkout-js/commit/f00fbb3e4961c587b55a4e758659d2989f45c82f))
+* **payment:** BOLT-386 Add BODL analytics tracking events ([344542e](https://github.com/bigcommerce/checkout-js/commit/344542eff4ab529783a608dca3a0959090f52f39))
+* **payment:** BOLT-386 Add BODL analytics tracking events ([e7c3946](https://github.com/bigcommerce/checkout-js/commit/e7c3946f7a295941c4a24c324c2ca18160ef46dc))
+* **payment:** BOLT-386 Add BODL analytics tracking events ([fc4e395](https://github.com/bigcommerce/checkout-js/commit/fc4e395f49ca1ac3ca6a874688d0a6662078d3da))
+* **payment:** BOLT-386 Add BODL analytics tracking events ([28709db](https://github.com/bigcommerce/checkout-js/commit/28709dbc5acd6e47eb64801e4f031247ad0aeb29))
+
 ### [1.266.3](https://github.com/bigcommerce/checkout-js/compare/v1.266.2...v1.266.3) (2022-11-02)
 
 ### [1.266.2](https://github.com/bigcommerce/checkout-js/compare/v1.266.1...v1.266.2) (2022-10-31)
