@@ -11,7 +11,7 @@ export interface AnalyticsEvents {
     customerPaymentMethodExecuted(payload?: CheckoutPaymentMethodExecutedOptions): void;
     showShippingMethods(): void;
     selectedPaymentMethod(methodName?: string): void;
-    clickPayButton(payload?: {[key:string]: unknown}): void;
+    clickPayButton(payload?: { [key: string]: unknown }): void;
     paymentRejected(): void;
     paymentComplete(): void;
     exitCheckout(): void;

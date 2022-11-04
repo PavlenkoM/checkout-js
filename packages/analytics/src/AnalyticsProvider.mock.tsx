@@ -1,8 +1,9 @@
-import React, { useMemo, FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
+
 import AnalyticsContext, { AnalyticsEvents } from './AnalyticsContext';
 
 const AnalyticsProviderMock: FunctionComponent = ({ children }) => {
-    const analyticsTracker: AnalyticsEvents = useMemo(() => ({
+    const analyticsTracker: AnalyticsEvents = {
         checkoutBegin: jest.fn(),
         trackStepCompleted: jest.fn(),
         trackStepViewed: jest.fn(),
@@ -16,13 +17,11 @@ const AnalyticsProviderMock: FunctionComponent = ({ children }) => {
         paymentRejected: jest.fn(),
         paymentComplete: jest.fn(),
         exitCheckout: jest.fn(),
-    }), []);
+    };
 
     return (
-        <AnalyticsContext.Provider
-            value={ {analyticsTracker} }
-        >
-            { children }
+        <AnalyticsContext.Provider value={{ analyticsTracker }}>
+            {children}
         </AnalyticsContext.Provider>
     );
 };

@@ -1,5 +1,13 @@
-import { BodlEventsPayload, BodlService, CheckoutService, createBodlService, createStepTracker, StepTracker } from '@bigcommerce/checkout-sdk';
+import {
+    BodlEventsPayload,
+    BodlService,
+    CheckoutService,
+    createBodlService,
+    createStepTracker,
+    StepTracker,
+} from '@bigcommerce/checkout-sdk';
 import React, { ReactNode, useMemo } from 'react';
+
 import AnalyticsContext, { AnalyticsEvents } from './AnalyticsContext';
 import createAnalyticsService from './createAnalyticsService';
 
@@ -11,11 +19,11 @@ interface AnalyticsProviderProps {
 const AnalyticsProvider = ({ checkoutService, children }: AnalyticsProviderProps) => {
     const getStepTracker = useMemo(
         () => createAnalyticsService<StepTracker>(createStepTracker, [checkoutService]),
-        [checkoutService]
+        [checkoutService],
     );
     const getBodlService = useMemo(
         () => createAnalyticsService<BodlService>(createBodlService, [checkoutService.subscribe]),
-        [checkoutService]
+        [checkoutService],
     );
 
     const checkoutBegin = () => {
@@ -73,7 +81,7 @@ const AnalyticsProvider = ({ checkoutService, children }: AnalyticsProviderProps
         getBodlService().exitCheckout();
     };
 
-    const analyticsTracker: AnalyticsEvents = useMemo(() => ({
+    const analyticsTracker: AnalyticsEvents = {
         checkoutBegin,
         trackStepCompleted,
         trackStepViewed,
@@ -86,14 +94,12 @@ const AnalyticsProvider = ({ checkoutService, children }: AnalyticsProviderProps
         clickPayButton,
         paymentRejected,
         paymentComplete,
-        exitCheckout
-    }), []);
+        exitCheckout,
+    };
 
     return (
-        <AnalyticsContext.Provider
-            value={ {analyticsTracker} }
-        >
-            { children }
+        <AnalyticsContext.Provider value={{ analyticsTracker }}>
+            {children}
         </AnalyticsContext.Provider>
     );
 };

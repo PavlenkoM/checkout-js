@@ -1,4 +1,7 @@
-export default function createAnalyticsService<T>(createFn: (args?: any) => T, createArguments: any[] = []) {
+export default function createAnalyticsService<T>(
+    createFn: (args?: any) => T,
+    createArguments: unknown[] = [],
+) {
     let analyticsTracker: T;
 
     return () => {
@@ -7,6 +10,7 @@ export default function createAnalyticsService<T>(createFn: (args?: any) => T, c
         }
 
         analyticsTracker = createFn(...createArguments);
+
         return analyticsTracker;
     };
 }

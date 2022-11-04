@@ -2,32 +2,22 @@ import createAnalyticsService from './createAnalyticsService';
 
 describe('createAnalyticsService', () => {
     it('should be created once', () => {
-        const createFn = jest.fn().mockImplementation(
-            (...options) => (
-                [...options]
-            )
-        );
         const createArguments = ['create', 'arguments'];
+        const createFn = jest.fn().mockImplementation((options: string[]) => options);
 
-        let getService = createAnalyticsService(createFn, createArguments);
+        const getService: () => string[] = createAnalyticsService(createFn, [createArguments]);
 
         expect(getService()[0]).toBe('create');
         expect(getService()[1]).toBe('arguments');
-
-        expect(createFn).toBeCalledTimes(1);
+        expect(createFn).toHaveBeenCalledTimes(1);
     });
 
     it('should be created without arguments', () => {
-        const createFn = jest.fn().mockImplementation(
-            (...options) => (
-                [...options]
-            )
-        );
+        const createFn = jest.fn().mockImplementation((option: unknown) => option);
 
-        let getService = createAnalyticsService(createFn);
+        const getService = createAnalyticsService(createFn);
 
-        expect(getService().length).toBe(0);
-
-        expect(createFn).toBeCalledTimes(1);
+        expect(getService()).toBeUndefined();
+        expect(createFn).toHaveBeenCalledTimes(1);
     });
 });

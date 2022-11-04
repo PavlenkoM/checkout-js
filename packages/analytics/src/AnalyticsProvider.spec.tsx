@@ -2,34 +2,47 @@ import * as CheckoutSdk from '@bigcommerce/checkout-sdk';
 import { mount } from 'enzyme';
 import React, { useEffect } from 'react';
 
-import * as createAnalyticsService from './createAnalyticsService';
-import useAnalytics from './useAnalytics' 
 import AnalyticsProvider from './AnalyticsProvider';
+import * as createAnalyticsService from './createAnalyticsService';
+import useAnalytics from './useAnalytics';
 
 jest.mock('@bigcommerce/checkout-sdk', () => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         __esModule: true,
         ...jest.requireActual('@bigcommerce/checkout-sdk'),
-    }
+    };
 });
 
-const AnalyticsProviderChildrenMock = ({ eventName, eventPayload }: {eventName: string, eventPayload?: any}) => {
+const AnalyticsProviderChildrenMock = ({
+    eventName,
+    eventPayload,
+}: {
+    eventName: string;
+    eventPayload?: string | CheckoutSdk.BodlEventsPayload;
+}) => {
     const { analyticsTracker } = useAnalytics();
 
     useEffect(() => {
-        !!eventName && analyticsTracker[eventName](eventPayload);
-    }, []);
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        analyticsTracker[eventName](eventPayload);
+    }, [analyticsTracker, eventName, eventPayload]);
 
     return null;
 };
 
-const TestComponent = ({ eventName, eventPayload }: {eventName: string, eventPayload?: any}) => {
-    const checkoutServiceMock = jest.fn().mockReturnValue({
-        subscribe: jest.fn()
-    } as Partial<CheckoutSdk.CheckoutService>)();
+const TestComponent = ({
+    eventName,
+    eventPayload,
+}: {
+    eventName: string;
+    eventPayload?: string | CheckoutSdk.BodlEventsPayload;
+}) => {
+    const checkoutService = CheckoutSdk.createCheckoutService();
 
     return (
-        <AnalyticsProvider checkoutService={checkoutServiceMock}>
+        <AnalyticsProvider checkoutService={checkoutService}>
             <AnalyticsProviderChildrenMock eventName={eventName} eventPayload={eventPayload} />
         </AnalyticsProvider>
     );
@@ -40,7 +53,9 @@ describe('AnalyticsProvider', () => {
     let bodlServiceMock: CheckoutSdk.BodlService;
 
     beforeEach(() => {
-        jest.spyOn(createAnalyticsService, 'default').mockImplementation((createFn, _args) => createFn);
+        jest.spyOn(createAnalyticsService, 'default').mockImplementation(
+            (createFn, _args) => createFn,
+        );
 
         stepTrackerMock = {
             trackOrderComplete: jest.fn(),
@@ -69,11 +84,14 @@ describe('AnalyticsProvider', () => {
 
     it('throws an error when useAnalytics hook used without AnalyticsContext', () => {
         let errorMessage = '';
+
         try {
-            mount(<AnalyticsProviderChildrenMock eventName="checkoutBegin" />)
-        } catch (err) {
-            errorMessage = err.message;
+            mount(<AnalyticsProviderChildrenMock eventName="checkoutBegin" />);
+        } catch (error) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            errorMessage = error.message;
         }
+
         expect(errorMessage).toBe('useAnalytics must be used within an <AnalyticsProvider>');
         expect(stepTrackerMock.trackCheckoutStarted).not.toHaveBeenCalled();
         expect(bodlServiceMock.checkoutBegin).not.toHaveBeenCalled();
@@ -123,10 +141,17 @@ describe('AnalyticsProvider', () => {
     });
 
     it('track customer payment method executed', () => {
-        mount(<TestComponent eventName="customerPaymentMethodExecuted" eventPayload={{data: 'test data'}} />);
+        mount(
+            <TestComponent
+                eventName="customerPaymentMethodExecuted"
+                eventPayload={{ data: 'test data' }}
+            />,
+        );
 
         expect(bodlServiceMock.customerPaymentMethodExecuted).toHaveBeenCalledTimes(1);
-        expect(bodlServiceMock.customerPaymentMethodExecuted).toHaveBeenCalledWith({data: 'test data'});
+        expect(bodlServiceMock.customerPaymentMethodExecuted).toHaveBeenCalledWith({
+            data: 'test data',
+        });
     });
 
     it('track show shipping methods', () => {
@@ -143,10 +168,10 @@ describe('AnalyticsProvider', () => {
     });
 
     it('track click Pay button', () => {
-        mount(<TestComponent eventName="clickPayButton" eventPayload={{data: 'test data'}} />);
+        mount(<TestComponent eventName="clickPayButton" eventPayload={{ data: 'test data' }} />);
 
         expect(bodlServiceMock.clickPayButton).toHaveBeenCalledTimes(1);
-        expect(bodlServiceMock.clickPayButton).toHaveBeenCalledWith({data: 'test data'});
+        expect(bodlServiceMock.clickPayButton).toHaveBeenCalledWith({ data: 'test data' });
     });
 
     it('track payment rejected', () => {

@@ -1,11 +1,11 @@
 import {
+    CheckoutPaymentMethodExecutedOptions,
     CheckoutSelectors,
     CustomerAccountRequestBody,
     CustomerCredentials,
     CustomerInitializeOptions,
     CustomerRequestOptions,
     ExecutePaymentMethodCheckoutOptions,
-    CheckoutPaymentMethodExecutedOptions,
     FormField,
     GuestCredentials,
     SignInEmail,
