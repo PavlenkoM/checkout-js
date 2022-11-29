@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.275.1-prerelease.1669716796913](https://github.com/bigcommerce/checkout-js/compare/v1.275.0...v1.275.1-prerelease.1669716796913) (2022-11-29)
+
+
+### Features
+
+* **payment:** BOLT-408 Add BODL event for customer suggestion init ([aa1dd09](https://github.com/bigcommerce/checkout-js/commit/aa1dd094201bd0c250131d8d297c6105f5b0972e))
+
 ## [1.275.0](https://github.com/bigcommerce/checkout-js/compare/v1.274.2...v1.275.0) (2022-11-29)
 
 
