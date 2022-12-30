@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.279.2-prerelease.1672419553977](https://github.com/bigcommerce/checkout-js/compare/v1.279.1...v1.279.2-prerelease.1672419553977) (2022-12-30)
+
+
+### Features
+
+* **payment:** BOLT-437 Modify analytics event for Bolt suggestion on customer step ([273689b](https://github.com/bigcommerce/checkout-js/commit/273689b8dec46ca263083c07c8d63958f3dad683))
+* **payment:** BOLT-437 Modify analytics event for Bolt suggestion on customer step ([d4ac6cd](https://github.com/bigcommerce/checkout-js/commit/d4ac6cd66dd05a4829a1c6cffa6c93e4651e3057))
+
 ### [1.279.1](https://github.com/bigcommerce/checkout-js/compare/v1.279.0...v1.279.1) (2022-12-29)
 
 ## [1.279.0](https://github.com/bigcommerce/checkout-js/compare/v1.278.1...v1.279.0) (2022-12-23)
