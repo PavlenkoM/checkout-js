@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.282.1-prerelease.1673530353160](https://github.com/bigcommerce/checkout-js/compare/v1.282.0...v1.282.1-prerelease.1673530353160) (2023-01-12)
+
+
+### Features
+
+* **payment:** PAYPAL-1839 Create braintreepaypal customer button strategy ([9abc688](https://github.com/bigcommerce/checkout-js/commit/9abc68853530442dcdf6371ea3fade3ac3294eb6))
+
 ## [1.282.0](https://github.com/bigcommerce/checkout-js/compare/v1.281.7...v1.282.0) (2023-01-10)
 
 
