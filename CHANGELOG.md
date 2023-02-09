@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.286.12-prerelease.1675939900250](https://github.com/bigcommerce/checkout-js/compare/v1.286.11...v1.286.12-prerelease.1675939900250) (2023-02-09)
+
+
+### Features
+
+* **checkout:** CHECKOUT-7255 Remove checkout step numbers ([#1186](https://github.com/bigcommerce/checkout-js/issues/1186)) ([1c3a999](https://github.com/bigcommerce/checkout-js/commit/1c3a9992f40d6e65214d5ad4ef1719aa816d1136))
+* **payment:** PAYPAL-1838 Create paypalcommercevenmo customer button strategy ([3efc591](https://github.com/bigcommerce/checkout-js/commit/3efc5915b0941e5bf90770135cf3dd1147b08bb0))
+
 ### [1.286.11](https://github.com/bigcommerce/checkout-js/compare/v1.286.10...v1.286.11) (2023-02-07)
 
 ### [1.286.10](https://github.com/bigcommerce/checkout-js/compare/v1.286.9...v1.286.10) (2023-02-06)
