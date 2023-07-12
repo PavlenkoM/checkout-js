@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.339.1-prerelease.1689147261762](https://github.com/bigcommerce/checkout-js/compare/v1.338.2...v1.339.1-prerelease.1689147261762) (2023-07-12)
+
+
+### Features
+
+* **payment:** PI-175 [Stripe] Guest Customers able to checkout witho… ([#1350](https://github.com/bigcommerce/checkout-js/issues/1350)) ([8be3c3a](https://github.com/bigcommerce/checkout-js/commit/8be3c3ab665b07fdae833945aad23109f89220f9))
+
 ## [1.339.0](https://github.com/bigcommerce/checkout-js/compare/v1.338.2...v1.339.0) (2023-07-11)
 
 
