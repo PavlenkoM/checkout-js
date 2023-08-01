@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.347.2-prerelease.1690914490468](https://github.com/bigcommerce/checkout-js/compare/v1.347.1...v1.347.2-prerelease.1690914490468) (2023-08-01)
+
+
+### Features
+
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([41f8c21](https://github.com/bigcommerce/checkout-js/commit/41f8c218d05d5429e861b9406f4708fc9580c82a))
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([867ad03](https://github.com/bigcommerce/checkout-js/commit/867ad03e80750629124b4f2da84ae3965eb5c493))
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([e8c1bd2](https://github.com/bigcommerce/checkout-js/commit/e8c1bd2844616df92ae900a610ad9c4cd04ab8cc))
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([e99de44](https://github.com/bigcommerce/checkout-js/commit/e99de448de1f3f8ad7aae5d933058ac7fee60124))
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([d4a521d](https://github.com/bigcommerce/checkout-js/commit/d4a521d80b4377221eb82d05cf3934a572d5e9f3))
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([341ffc7](https://github.com/bigcommerce/checkout-js/commit/341ffc7c5feae2c38d85323b68e4970249db1c4c))
+* **payment:** PAYPAL-2732 PayPal AXO shipping components ([c1161cd](https://github.com/bigcommerce/checkout-js/commit/c1161cd73e08675e7c318d53f356c80c01c06269))
+
 ### [1.347.1](https://github.com/bigcommerce/checkout-js/compare/v1.347.0...v1.347.1) (2023-08-01)
 
 ## [1.347.0](https://github.com/bigcommerce/checkout-js/compare/v1.346.2...v1.347.0) (2023-08-01)
