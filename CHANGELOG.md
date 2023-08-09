@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.352.2-prerelease.1691580284292](https://github.com/bigcommerce/checkout-js/compare/v1.352.1...v1.352.2-prerelease.1691580284292) (2023-08-09)
+
+
+### Features
+
+* **payment:** PAYPAL-2732 new renderer method for address select component ([11bedc0](https://github.com/bigcommerce/checkout-js/commit/11bedc0f80ac528d113b03fa4b6300f7a4966338))
+* **payment:** PAYPAL-2732 PayPalAxo address styling ([cd69115](https://github.com/bigcommerce/checkout-js/commit/cd69115ce76e67eeb1fe31c8587865271ec1ce9d))
+* **payment:** PAYPAL-2732 PayPalAxo address styling ([465c1f9](https://github.com/bigcommerce/checkout-js/commit/465c1f941180cc5d85faab35ad9e72e790ccd356))
+* **payment:** PAYPAL-2732 PayPalAxo address styling ([8c64362](https://github.com/bigcommerce/checkout-js/commit/8c643629b1eba4fec53ffc39a1c1ea0821edd5b3))
+* **payment:** PAYPAL-2732 PayPalAxo address styling ([523e1f0](https://github.com/bigcommerce/checkout-js/commit/523e1f0d0d072fb6d12ca3b26f3cf3db933c244f))
+* **payment:** PAYPAL-2732 PayPalAxo shipping summary ([0259196](https://github.com/bigcommerce/checkout-js/commit/02591965043fff75385b80f726ff43bfb5df2631))
+* **payment:** PAYPAL-2732 PayPalAxo Shipping Summary ([0c81e5d](https://github.com/bigcommerce/checkout-js/commit/0c81e5d7ee027a0786b7f2c90481671f1d806346))
+
 ### [1.352.1](https://github.com/bigcommerce/checkout-js/compare/v1.352.0...v1.352.1) (2023-08-08)
 
 ## [1.352.0](https://github.com/bigcommerce/checkout-js/compare/v1.351.0...v1.352.0) (2023-08-08)
