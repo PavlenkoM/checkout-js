@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.369.3-prerelease.1694178579786](https://github.com/bigcommerce/checkout-js/compare/v1.368.3...v1.369.3-prerelease.1694178579786) (2023-09-08)
+
+
+### Features
+
+* **payment:** PAYPAL-2728 create shipping strategy for Braintree AXO ([e908c69](https://github.com/bigcommerce/checkout-js/commit/e908c693d00d9c52d665f2783b55be0899b6c34d))
+
+
+### Bug Fixes
+
+* **payment:** PAYPAL-2859 fixed the issue with wallet buttons on top rendering process ([#1489](https://github.com/bigcommerce/checkout-js/issues/1489)) ([f228383](https://github.com/bigcommerce/checkout-js/commit/f228383dbda7a48773ef75a075f7b470af01ff62))
+
+
+### Code Refactoring
+
+* **payment:** PAYPAL-2859 created PayPal AXO integration package ([892729b](https://github.com/bigcommerce/checkout-js/commit/892729bfcf8b9f5984afc9482dd0ec9b6ad9cab5))
+
 ### [1.369.2](https://github.com/bigcommerce/checkout-js/compare/v1.369.1...v1.369.2) (2023-09-07)
 
 
