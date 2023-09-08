@@ -16,6 +16,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
+      "@bigcommerce/checkout/paypal-connect-integration": [
+        "packages/paypal-connect-integration/src/index.ts"
+      ],
       "@bigcommerce/checkout/afterpay-integration": ["packages/afterpay-integration/src/index.ts"],
       "@bigcommerce/checkout/analytics": ["packages/analytics/src/index.ts"],
       "@bigcommerce/checkout/apple-pay-integration": [
