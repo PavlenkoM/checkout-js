@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.416.1-prerelease.1703585517218](https://github.com/bigcommerce/checkout-js/compare/v1.416.0...v1.416.1-prerelease.1703585517218) (2023-12-26)
+
+
+### Features
+
+* **other:** LOCAL-1444 delivery translation ([2092b5d](https://github.com/bigcommerce/checkout-js/commit/2092b5d0428112b3ac07de21eb89940c548c83f2))
+
+
+### Bug Fixes
+
+* **payment:** PI-345 prevent actions with certificate while processing payment ([2145eea](https://github.com/bigcommerce/checkout-js/commit/2145eea4a6f13d58f457c0e72a955d99c7b9d55f))
+
 ## [1.416.0](https://github.com/bigcommerce/checkout-js/compare/v1.415.0...v1.416.0) (2023-12-21)
 
 
