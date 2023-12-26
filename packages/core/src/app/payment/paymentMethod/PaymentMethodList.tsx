@@ -48,6 +48,11 @@ const PaymentMethodList: FunctionComponent<
         [methods, onSelect],
     );
 
+    // const pp = methods.splice(2, 1);
+    // const ppc = methods.splice(2, 1);
+    // const gp = methods.splice(2, 1);
+    // methods.splice(0, 0, pp[0], ppc[0], gp[0]);
+
     return (
         <Checklist
             defaultSelectedItemId={values.paymentProviderRadio}

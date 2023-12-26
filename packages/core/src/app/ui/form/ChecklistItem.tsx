@@ -67,8 +67,10 @@ const ChecklistItem: FunctionComponent<ChecklistItemProps> = ({
         <AccordionItem
             {...rest}
             bodyClassName="form-checklist-body"
-            className="form-checklist-item optimizedCheckout-form-checklist-item"
-            classNameSelected="form-checklist-item--selected optimizedCheckout-form-checklist-item--selected"
+            // className="form-checklist-item optimizedCheckout-form-checklist-item"
+            // classNameSelected="form-checklist-item--selected optimizedCheckout-form-checklist-item--selected"
+            className={`form-checklist-item optimizedCheckout-form-checklist-item ${htmlId}`}
+            classNameSelected={`form-checklist-item--selected optimizedCheckout-form-checklist-item--selected ${htmlId}`}
             headerClassName="form-checklist-header"
             headerClassNameSelected="form-checklist-header--selected"
             headerContent={renderHeaderContent}

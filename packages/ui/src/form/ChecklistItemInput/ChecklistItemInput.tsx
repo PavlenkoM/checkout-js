@@ -22,7 +22,7 @@ const ChecklistItemInput: FunctionComponent<ChecklistItemInputProps> = ({
             type="radio"
         />
 
-        <Label htmlFor={id}>{children}</Label>
+        <Label htmlFor={id}>storefront/payments{children}</Label>
     </>
 );
 

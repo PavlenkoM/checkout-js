@@ -3,3 +3,29 @@
 @import '../../core/src/scss/settings/foundation/foundation';
 
 $global-radius: 4px;
+
+.form-checklist-item.radio-stripeupe-card {
+    .form-checklist-body {
+        margin: 0 !important;
+    }
+      
+    .paymentMethod--hosted,
+    .StripeElement {
+        padding: 0 !important;
+    }
+    
+    // .form-checklist-header {
+    //     height: 0;
+    //     overflow: hidden;
+    // }
+}
+
+
+.form-checklist-item.radio-paypalcommerce {
+    .form-checklist-checkbox ~ .form-label::after {
+        background-color: #4496f6;
+    }
+    .form-checklist-checkbox ~ .form-label::before {
+        border-color: #4496f6;
+    }
+}
