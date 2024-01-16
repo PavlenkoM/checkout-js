@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.427.2-prerelease.1705420894728](https://github.com/bigcommerce/checkout-js/compare/v1.427.1...v1.427.2-prerelease.1705420894728) (2024-01-16)
+
+
+### Bug Fixes
+
+* **payment:** PI-1329 update payment methods after total amount change ([beee6de](https://github.com/bigcommerce/checkout-js/commit/beee6de342555a53c37cb75ec8c072555cb011a8))
+* **payment:** PI-1329 update payment methods after total amount change ([948c320](https://github.com/bigcommerce/checkout-js/commit/948c3200bc5b24f36c2992c4a15fd59e45149f0e))
+
 ### [1.427.1](https://github.com/bigcommerce/checkout-js/compare/v1.427.0...v1.427.1) (2024-01-16)
 
 ## [1.427.0](https://github.com/bigcommerce/checkout-js/compare/v1.426.0...v1.427.0) (2024-01-16)
