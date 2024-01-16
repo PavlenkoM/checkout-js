@@ -46,29 +46,29 @@ describe('Payment', () => {
     ) => {
         const subscribeEventEmitter = new EventEmitter();
         let previousFilterValue: any;
-
+    
         jest.spyOn(checkoutService, 'subscribe').mockImplementation(
             (subscriber, filter = noop) => {
                 subscribeEventEmitter.on('change', () => {
                     const filterValue = filter(checkoutService.getState());
-
+                    
                     if (!filterValue || previousFilterValue === filterValue) {
                         return noop;
                     } else if (!previousFilterValue) {
                         previousFilterValue = filterValue;
-
+                        
                         return noop;
                     }
 
                     previousFilterValue = filterValue;
-
+                    
                     return subscriber(checkoutService.getState());
                 });
                 subscribeEventEmitter.emit('change');
-
+    
                 return noop;
             });
-
+    
         return subscribeEventEmitter;
     }
 

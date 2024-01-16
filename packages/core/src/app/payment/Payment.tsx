@@ -142,6 +142,7 @@ class Payment extends Component<
 
         this.grandTotalChangeUnsubscribe = checkoutServiceSubscribe(
             () => this.handleCartTotalChange(),
+            ({ data }) => data.getCheckout()?.grandTotal,
             ({ data }) => data.getCheckout()?.outstandingBalance,
         );
 
