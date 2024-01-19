@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.430.1-prerelease.1705668482211](https://github.com/bigcommerce/checkout-js/compare/v1.430.0...v1.430.1-prerelease.1705668482211) (2024-01-19)
+
+
+### Bug Fixes
+
+* **payment:** PI-1256 fix icon for diners_club stored card ([fd81e45](https://github.com/bigcommerce/checkout-js/commit/fd81e45ea73588eb606d0c4f158143f5edfe581d))
+
 ## [1.430.0](https://github.com/bigcommerce/checkout-js/compare/v1.429.1...v1.430.0) (2024-01-18)
 
 
