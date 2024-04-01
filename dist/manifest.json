@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "appVersion": "1.464.2-prerelease.1711965839931",
+  "appVersion": "1.464.2-prerelease.1711972241199",
   "dynamicChunks": {
     "js": [
       "134-7eb61d03.js",
@@ -38,7 +38,7 @@
     "608-455ad0c3.js",
     "418-34ff8dac.js",
     "81-47f33709.js",
-    "checkout-c4e7302b.js"
+    "checkout-a76e5c95.js"
   ],
   "css": [
     "checkout-b5ca9670.css"
