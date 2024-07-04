@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.505.2-prerelease.1720103844446](https://github.com/bigcommerce/checkout-js/compare/v1.505.1...v1.505.2-prerelease.1720103844446) (2024-07-04)
+
+
+### Features
+
+* **payment:** PI-1258 New Stripe UPE (Spike) ([3f4ee3d](https://github.com/bigcommerce/checkout-js/commit/3f4ee3d78826348f909349cf0631288b9aabbc1b))
+* **payment:** STRIPE-376 New Stripe UPE (Spike) ([23ee94c](https://github.com/bigcommerce/checkout-js/commit/23ee94cd5a4e93adac38521a1c919a8b892a9b33))
+
 ### [1.505.1](https://github.com/bigcommerce/checkout-js/compare/v1.505.0...v1.505.1) (2024-07-03)
 
 ## [1.505.0](https://github.com/bigcommerce/checkout-js/compare/v1.504.0...v1.505.0) (2024-07-02)
