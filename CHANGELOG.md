@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.594.0](https://github.com/bigcommerce/checkout-js/compare/v1.593.0...v1.594.0) (2025-05-28)
+
+
+### Features
+
+* **payment:** move Stripe OCS and UPE to separate modules ([f21b381](https://github.com/bigcommerce/checkout-js/commit/f21b381d71b23fa2252b792062867da9d934a4cd))
+
 ## [1.593.0](https://github.com/bigcommerce/checkout-js/compare/v1.592.0...v1.593.0) (2025-05-28)
 
 
