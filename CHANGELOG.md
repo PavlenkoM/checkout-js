@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.609.2-prerelease.1750692268143](https://github.com/bigcommerce/checkout-js/compare/v1.609.1...v1.609.2-prerelease.1750692268143) (2025-06-23)
+
+
+### Features
+
+* **payment:** Get applied styles for HTML pseudo elements ([ab535d7](https://github.com/bigcommerce/checkout-js/commit/ab535d7998b66a6c56795fb992a502b1d005338e))
+
 ### [1.609.1](https://github.com/bigcommerce/checkout-js/compare/v1.609.0...v1.609.1) (2025-06-20)
 
 
