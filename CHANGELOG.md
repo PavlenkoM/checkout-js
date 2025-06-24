@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.610.3-prerelease.1750773966346](https://github.com/bigcommerce/checkout-js/compare/v1.610.2...v1.610.3-prerelease.1750773966346) (2025-06-24)
+
+
+### Features
+
+* **payment:** stripe link v2 test build ([6a91e6f](https://github.com/bigcommerce/checkout-js/commit/6a91e6fe8334ad297c0ed80fd57493a68c1ac43a))
+* **payment:** stripe link v2 test build ([582442d](https://github.com/bigcommerce/checkout-js/commit/582442d4a6dcd4c81329dae42a2123e09375a723))
+
+
+### Bug Fixes
+
+* **payment:** fixed eslint errors in paypal-commerce-integration package ([50ebb16](https://github.com/bigcommerce/checkout-js/commit/50ebb166a2f7f32f55abda3ac158ffb8728f122b))
+
 ### [1.610.2](https://github.com/bigcommerce/checkout-js/compare/v1.610.1...v1.610.2) (2025-06-24)
 
 ### [1.610.1](https://github.com/bigcommerce/checkout-js/compare/v1.610.0...v1.610.1) (2025-06-24)
