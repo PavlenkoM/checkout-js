@@ -123,12 +123,6 @@ const GooglePayPaymentMethod: FunctionComponent<PaymentMethodProps> = ({
                     onError: onUnhandledError,
                     onPaymentSelect: () => reinitializePayment(mergedOptions),
                 },
-                [PaymentMethodId.StripeOCSGooglePay]: {
-                  loadingContainerId,
-                  walletButton: 'walletButton',
-                  onError: onUnhandledError,
-                  onPaymentSelect: () => reinitializePayment(mergedOptions),
-                },
             };
 
             return checkoutService.initializePayment(mergedOptions);
