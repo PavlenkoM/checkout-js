@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.739.2](https://github.com/bigcommerce/checkout-js/compare/v1.739.1...v1.739.2) (2026-02-16)
+
+
+### Bug Fixes
+
+* **checkout:** CHECKOUT-9049 fix error message text for number field ([#2828](https://github.com/bigcommerce/checkout-js/issues/2828)) ([025b3b5](https://github.com/bigcommerce/checkout-js/commit/025b3b5be8f8d49010d35a41475cd98bd4fef7cb))
+
 ### [1.739.1](https://github.com/bigcommerce/checkout-js/compare/v1.739.0...v1.739.1) (2026-02-15)
 
 
