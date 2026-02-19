@@ -1,9 +1,11 @@
 import { type LineItemMap } from '@bigcommerce/checkout-sdk';
-import React, { type ReactElement, useCallback, useState } from 'react';
+import React, { type FunctionComponent, type ReactElement, type ReactNode, useCallback, useRef, useState } from 'react';
+import { TransitionGroup } from 'react-transition-group';
 
 import { useCheckout } from '@bigcommerce/checkout/contexts';
 import { preventDefault } from '@bigcommerce/checkout/dom-utils';
 import { TranslatedString } from '@bigcommerce/checkout/locale';
+import { CollapseCSSTransition } from '@bigcommerce/checkout/ui';
 
 import { IconChevronDown, IconChevronUp } from '../ui/icon';
 import { isSmallScreen } from '../ui/responsive';
@@ -16,6 +18,30 @@ import mapFromGiftCertificate from './mapFromGiftCertificate';
 import mapFromPhysical from './mapFromPhysical';
 import OrderSummaryItem from './OrderSummaryItem';
 import removeBundledItems from './removeBundledItems';
+
+interface AnimatedProductItemProps {
+    children: ReactNode;
+    in?: boolean;
+    onExited?: () => void;
+}
+
+const AnimatedProductItem: FunctionComponent<AnimatedProductItemProps> = ({ children, in: inProp, onExited }) => {
+    const nodeRef = useRef<HTMLLIElement>(null);
+
+    return (
+        <CollapseCSSTransition
+            classNames="product-item"
+            in={inProp}
+            isSlideAnimation
+            nodeRef={nodeRef}
+            onExited={onExited}
+        >
+            <li className="productList-item is-visible" ref={nodeRef}>
+                {children}
+            </li>
+        </CollapseCSSTransition>
+    );
+};
 
 const COLLAPSED_ITEMS_LIMIT = 4;
 const COLLAPSED_ITEMS_LIMIT_SMALL_SCREEN = 3;
@@ -60,13 +86,13 @@ const ProductList = ({ items, isExpanded, collapsedLimit }: { items: LineItemMap
     ].slice(0, isExpanded ? undefined : collapsedLimit);
 
     return (
-        <ul aria-live="polite" className="productList">
+        <TransitionGroup aria-live="polite" className="productList" component="ul">
             {summaryItems.map(summaryItemProps => (
-                <li className="productList-item is-visible" key={summaryItemProps.id}>
+                <AnimatedProductItem key={summaryItemProps.id}>
                     <OrderSummaryItem {...summaryItemProps} />
-                </li>
+                </AnimatedProductItem>
             ))}
-        </ul>
+        </TransitionGroup>
     );
 };
 
