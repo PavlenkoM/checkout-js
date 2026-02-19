@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.743.0](https://github.com/bigcommerce/checkout-js/compare/v1.742.0...v1.743.0) (2026-02-19)
+
+
+### Features
+
+* **checkout:** CHECKOUT-9760 Transition animation for order summary ([#2773](https://github.com/bigcommerce/checkout-js/issues/2773)) ([2f2e9db](https://github.com/bigcommerce/checkout-js/commit/2f2e9db0d21140062b70491f1b122637ca155098))
+
 ## [1.742.0](https://github.com/bigcommerce/checkout-js/compare/v1.741.1...v1.742.0) (2026-02-19)
 
 
