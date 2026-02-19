@@ -1,6 +1,9 @@
 import classNames from 'classnames';
 import { isNumber } from 'lodash';
-import React, { type FunctionComponent, memo, type ReactNode } from 'react';
+import React, { type FunctionComponent, memo, type ReactNode, useRef } from 'react';
+
+import { TranslatedString } from '@bigcommerce/checkout/locale';
+import { CollapseCSSTransition } from '@bigcommerce/checkout/ui';
 
 import { ShopperCurrency } from '../currency';
 
@@ -13,6 +16,15 @@ export interface OrderSummaryItemProps {
     image?: ReactNode;
     description?: ReactNode;
     productOptions?: OrderSummaryItemOption[];
+    quantityBackordered?: number;
+    quantityOnHand?: number;
+    backorderMessage?: string;
+}
+
+interface Props {
+    orderItem: OrderSummaryItemProps;
+    shouldDisplayBackorderDetails: boolean;
+    shouldExapandBackorderDetails: boolean;
 }
 
 export interface OrderSummaryItemOption {
@@ -20,15 +32,55 @@ export interface OrderSummaryItemOption {
     content: ReactNode;
 }
 
-const OrderSummaryItem: FunctionComponent<OrderSummaryItemProps> = ({
-    amount,
-    amountAfterDiscount,
-    image,
-    name,
-    productOptions,
-    quantity,
-    description,
+const OrderSummaryItemBackorderDetails = ({ item, isExpanded }: { item: OrderSummaryItemProps; isExpanded: boolean }) => {
+    const backorderDetailsRef = useRef<HTMLDivElement>(null);
+
+    const { quantityBackordered, quantityOnHand, backorderMessage } = item;
+    
+    return (
+        <CollapseCSSTransition isVisible={isExpanded} nodeRef={backorderDetailsRef}>
+            <div className="product-backorder-details-container" ref={backorderDetailsRef}>
+                {!!quantityOnHand && (
+                    <div className="sub-text" data-test="cart-item-onhand-qty">
+                        <TranslatedString
+                            data={{ count: quantityOnHand }}
+                            id="cart.ready_to_ship_count_text"
+                        />
+                    </div>
+                )}
+                {!!quantityBackordered && (
+                    <div className="sub-text" data-test="cart-item-backorder-qty">
+                        <TranslatedString
+                            data={{ count: quantityBackordered }}
+                            id="cart.backorder_count_text"
+                        />
+                    </div>
+                )}
+                {!!backorderMessage && (
+                    <div className="sub-text" data-test="cart-item-backorder-message">
+                        {backorderMessage}
+                    </div>
+                )}
+            </div>
+        </CollapseCSSTransition>
+    );
+};
+
+const OrderSummaryItem: FunctionComponent<Props> = ({
+    orderItem,
+    shouldDisplayBackorderDetails,
+    shouldExapandBackorderDetails,
 }) => {
+    const {
+        amount,
+        amountAfterDiscount,
+        image,
+        name,
+        productOptions,
+        quantity,
+        description,
+    } = orderItem;
+
     return (
         <div className="product" data-test="cart-item">
             <figure className="product-column product-figure">{image}</figure>
@@ -63,6 +115,9 @@ const OrderSummaryItem: FunctionComponent<OrderSummaryItemProps> = ({
                         {description}
                     </div>
                 )}
+                {shouldDisplayBackorderDetails &&
+                    <OrderSummaryItemBackorderDetails isExpanded={shouldExapandBackorderDetails} item={orderItem} />
+                }
             </div>
 
             <div className="product-column product-actions">

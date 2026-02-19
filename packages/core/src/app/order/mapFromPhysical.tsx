@@ -16,6 +16,9 @@ function mapFromPhysical(item: PhysicalItem): OrderSummaryItemProps {
             testId: 'cart-item-product-option',
             content: `${option.name} ${option.value}`,
         })),
+        quantityBackordered: item.stockPosition?.quantityBackordered,
+        quantityOnHand: item.stockPosition?.quantityOnHand,
+        backorderMessage: item.stockPosition?.backorderMessage || undefined,
     };
 }
 
