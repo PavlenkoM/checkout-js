@@ -63,7 +63,9 @@ const ItemCount = (
     const { checkoutState } = useCheckout();
     const backorderCount = getBackorderCount(items);
     const config = checkoutState.data.getConfig();
-    const shouldDisplayBackorderDetails = config?.inventorySettings?.shouldDisplayBackorderMessagesOnStorefront;
+    const shouldDisplayBackorderDetails = 
+        !!config?.inventorySettings?.shouldDisplayBackorderMessagesOnStorefront &&
+        (!!config?.inventorySettings?.showQuantityOnBackorder || !!config?.inventorySettings?.showBackorderMessage);
 
     return (
         <h3
@@ -93,9 +95,6 @@ const ItemCount = (
 };
 
 const ProductList = ({ items, isExpanded, collapsedLimit, showBackorderDetails }: { items: LineItemMap; isExpanded: boolean; collapsedLimit: number; showBackorderDetails: boolean }): ReactElement => {
-    const { checkoutState } = useCheckout();
-    const config = checkoutState.data.getConfig();
-    const shouldDisplayBackorderDetails = !!config?.inventorySettings?.shouldDisplayBackorderMessagesOnStorefront;
     const summaryItems = [
         ...items.physicalItems.slice().sort((item) => item.variantId).map(item => mapFromPhysical(item)),
         ...items.giftCertificates.slice().map(mapFromGiftCertificate),
@@ -107,7 +106,7 @@ const ProductList = ({ items, isExpanded, collapsedLimit, showBackorderDetails }
         <TransitionGroup aria-live="polite" className="productList" component="ul">
             {summaryItems.map(summaryItemProps => (
                 <AnimatedProductItem key={summaryItemProps.id}>
-                    <OrderSummaryItem orderItem={summaryItemProps} shouldDisplayBackorderDetails={shouldDisplayBackorderDetails} shouldExapandBackorderDetails={showBackorderDetails} />
+                    <OrderSummaryItem orderItem={summaryItemProps} shouldExapandBackorderDetails={showBackorderDetails} />
                 </AnimatedProductItem>
             ))}
         </TransitionGroup>

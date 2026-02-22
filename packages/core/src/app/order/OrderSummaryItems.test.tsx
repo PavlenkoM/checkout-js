@@ -38,8 +38,8 @@ describe('OrderSummaryItems', () => {
         jest.spyOn(checkoutService.getState().data, 'getConfig').mockReturnValue({
             ...getStoreConfig(),
             inventorySettings: {
-                showQuantityOnBackorder: false,
-                showBackorderMessage: false,
+                showQuantityOnBackorder: true,
+                showBackorderMessage: true,
                 showQuantityOnHand: false,
                 showBackorderAvailabilityPrompt: false,
                 backorderAvailabilityPrompt: null,
