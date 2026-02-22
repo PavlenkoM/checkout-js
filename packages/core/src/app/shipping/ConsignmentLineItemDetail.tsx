@@ -23,7 +23,10 @@ const renderProductOptionDetails = (item: MultiShippingTableItemWithType | Physi
 export const ConsignmentLineItemContent = ({ item, isMultiShippingSummary = false }: { item: MultiShippingTableItemWithType | PhysicalItem; isMultiShippingSummary?: boolean }) => {
     const { checkoutState } = useCheckout();
     const config = checkoutState.data.getConfig();
-    const shouldDisplayBackordererQuantity = !!config?.inventorySettings?.shouldDisplayBackorderMessagesOnStorefront && !!item.stockPosition?.quantityBackordered;
+    const shouldDisplayBackorderQuantity =
+        !!config?.inventorySettings?.shouldDisplayBackorderMessagesOnStorefront &&
+        config?.inventorySettings?.showQuantityOnBackorder &&
+        !!item.stockPosition?.quantityBackordered;
     
     return <span
         className={classNames(
@@ -36,7 +39,7 @@ export const ConsignmentLineItemContent = ({ item, isMultiShippingSummary = fals
         }>
             {`${item.quantity} x `}
         </span>
-        {item.name} {shouldDisplayBackordererQuantity &&
+        {item.name} {shouldDisplayBackorderQuantity &&
             <span
                 className={classNames(
                     { 'body-thin': !isMultiShippingSummary },
