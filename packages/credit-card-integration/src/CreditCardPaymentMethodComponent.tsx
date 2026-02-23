@@ -359,6 +359,12 @@ export const CreditCardPaymentMethodComponent = (
 
     const SentryMessage = methodProp ? `DataCreditCardFieldset ${JSON.stringify(methodProp)}` : '';
 
+    const isHostedFormExplicitlySetToFalse = (method: PaymentMethod): boolean => {
+        return (
+            method.config.isHostedFormEnabled !== undefined && !method.config.isHostedFormEnabled
+        );
+    };
+
     if (!storeConfig) {
         throw Error('Unable to get config or customer');
     }
@@ -377,6 +383,7 @@ export const CreditCardPaymentMethodComponent = (
                         onUseNewInstrument={handleUseNewCard}
                         selectedInstrumentId={selectedInstrument && selectedInstrument.bigpayToken}
                         validateInstrument={
+                            !isHostedFormExplicitlySetToFalse(methodProp) &&
                             getStoredCardValidationFieldset ? (
                                 getStoredCardValidationFieldset(selectedInstrument)
                             ) : (
@@ -389,19 +396,23 @@ export const CreditCardPaymentMethodComponent = (
                     />
                 )}
 
-                {shouldShowCreditCardFieldset && !cardFieldset && (
-                    <>
-                        <CaptureMessageComponent message={SentryMessage} />
-                        <CreditCardFieldset
-                            shouldShowCardCodeField={
-                                methodProp.config.cardCode || methodProp.config.cardCode === null
-                            }
-                            shouldShowCustomerCodeField={methodProp.config.requireCustomerCode}
-                        />
-                    </>
-                )}
+                {shouldShowCreditCardFieldset &&
+                    (!cardFieldset || isHostedFormExplicitlySetToFalse(methodProp)) && (
+                        <>
+                            <CaptureMessageComponent message={SentryMessage} />
+                            <CreditCardFieldset
+                                shouldShowCardCodeField={
+                                    methodProp.config.cardCode ||
+                                    methodProp.config.cardCode === null
+                                }
+                                shouldShowCustomerCodeField={methodProp.config.requireCustomerCode}
+                            />
+                        </>
+                    )}
 
-                {shouldShowCreditCardFieldset && cardFieldset}
+                {shouldShowCreditCardFieldset &&
+                    !isHostedFormExplicitlySetToFalse(methodProp) &&
+                    cardFieldset}
 
                 {isInstrumentFeatureAvailableProp && (
                     <StoreInstrumentFieldset
