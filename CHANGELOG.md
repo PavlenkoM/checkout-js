@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.744.0](https://github.com/bigcommerce/checkout-js/compare/v1.743.0...v1.744.0) (2026-02-23)
+
+
+### Features
+
+* **checkout:** CHECKOUT-8842 Display shipping cost after discount ([#2841](https://github.com/bigcommerce/checkout-js/issues/2841)) ([a02d743](https://github.com/bigcommerce/checkout-js/commit/a02d74351eefb733dbcad03df32b5e8aa6345b73))
+
 ## [1.743.0](https://github.com/bigcommerce/checkout-js/compare/v1.742.0...v1.743.0) (2026-02-19)
 
 
