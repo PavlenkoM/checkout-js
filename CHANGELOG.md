@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.745.0](https://github.com/bigcommerce/checkout-js/compare/v1.744.1...v1.745.0) (2026-02-23)
+
+
+### Features
+
+* **shipping:** BACK-424 Add bacorder details to multi-shipping line items ([ecc5a99](https://github.com/bigcommerce/checkout-js/commit/ecc5a99c471439597c33e4710ee580de4720d42e))
+* **shipping:** BACK-424 Respect showQuantityOnBackorder inventory setting ([b2ef5d5](https://github.com/bigcommerce/checkout-js/commit/b2ef5d59eb4d85b9961ab02922b0b36a2accffcc))
+
 ### [1.744.1](https://github.com/bigcommerce/checkout-js/compare/v1.744.0...v1.744.1) (2026-02-23)
 
 ## [1.744.0](https://github.com/bigcommerce/checkout-js/compare/v1.743.0...v1.744.0) (2026-02-23)
