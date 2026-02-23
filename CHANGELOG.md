@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.745.1](https://github.com/bigcommerce/checkout-js/compare/v1.745.0...v1.745.1) (2026-02-23)
+
+
+### Bug Fixes
+
+* **payment:** CHECKOUT-9773 Fix Empty CC Containers Issue ([#2842](https://github.com/bigcommerce/checkout-js/issues/2842)) ([b3e740c](https://github.com/bigcommerce/checkout-js/commit/b3e740cbd948733bc1272b098e038cdb69f634ac))
+
 ## [1.745.0](https://github.com/bigcommerce/checkout-js/compare/v1.744.1...v1.745.0) (2026-02-23)
 
 
