@@ -47,10 +47,14 @@ const OrderSummaryItemBackorderDetails = ({ item, isExpanded }: { item: OrderSum
 
     const { quantityBackordered, quantityOnHand, backorderMessage } = item;
 
+    const shouldDisplayQuantityOnHand = !!config?.inventorySettings?.showQuantityOnBackorder && !!quantityOnHand;
+    const shouldDisplayQuantityOnBackorder = !!config?.inventorySettings?.showQuantityOnBackorder && !!quantityBackordered;
+    const shouldDisplayBackorderMessage = !!config?.inventorySettings?.showBackorderMessage && !!backorderMessage && !!quantityBackordered;
+
     return (
         <CollapseCSSTransition isVisible={isExpanded} nodeRef={backorderDetailsRef}>
             <div className="product-backorder-details-container" ref={backorderDetailsRef}>
-                {!!config?.inventorySettings?.showQuantityOnBackorder &&!!quantityOnHand && (
+                {shouldDisplayQuantityOnHand && (
                     <div className="sub-text" data-test="cart-item-onhand-qty">
                         <TranslatedString
                             data={{ count: quantityOnHand }}
@@ -58,7 +62,7 @@ const OrderSummaryItemBackorderDetails = ({ item, isExpanded }: { item: OrderSum
                         />
                     </div>
                 )}
-                {!!config?.inventorySettings?.showQuantityOnBackorder &&!!quantityBackordered && (
+                {shouldDisplayQuantityOnBackorder && (
                     <div className="sub-text" data-test="cart-item-backorder-qty">
                         <TranslatedString
                             data={{ count: quantityBackordered }}
@@ -66,7 +70,7 @@ const OrderSummaryItemBackorderDetails = ({ item, isExpanded }: { item: OrderSum
                         />
                     </div>
                 )}
-                {!!config?.inventorySettings?.showBackorderMessage && !!backorderMessage && (
+                {shouldDisplayBackorderMessage && (
                     <div className="sub-text" data-test="cart-item-backorder-message">
                         {backorderMessage}
                     </div>

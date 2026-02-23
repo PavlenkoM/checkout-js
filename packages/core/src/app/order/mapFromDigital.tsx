@@ -21,6 +21,9 @@ function mapFromDigital(item: DigitalItem): OrderSummaryItemProps {
             })),
             getDigitalItemDescription(item),
         ],
+        quantityBackordered: item.stockPosition?.quantityBackordered,
+        quantityOnHand: item.stockPosition?.quantityOnHand,
+        backorderMessage: item.stockPosition?.backorderMessage || undefined,
     };
 }
 

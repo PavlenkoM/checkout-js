@@ -78,7 +78,7 @@ const ItemCount = (
                     className="cart-backorder-link"
                     data-test="cart-backorder-link"
                     href="#"
-                    onClick={preventDefault(() => setShowBackorderDetails(!showBackorderDetails))}
+                    onClick={preventDefault(() => setShowBackorderDetails(prev => !prev))}
                 >
                     {showBackorderDetails && <>
                         <TranslatedString id="cart.hide_backorder_details" />
