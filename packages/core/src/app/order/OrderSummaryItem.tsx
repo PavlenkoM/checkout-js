@@ -8,7 +8,7 @@ import { CollapseCSSTransition } from '@bigcommerce/checkout/ui';
 
 import { ShopperCurrency } from '../currency';
 
-export interface OrderSummaryItemProps {
+export interface OrderItemType {
     id: string | number;
     amount: number;
     quantity: number;
@@ -22,8 +22,8 @@ export interface OrderSummaryItemProps {
     backorderMessage?: string;
 }
 
-interface Props {
-    orderItem: OrderSummaryItemProps;
+interface OrderSummaryItemProps {
+    orderItem: OrderItemType;
     shouldExapandBackorderDetails: boolean;
 }
 
@@ -32,24 +32,23 @@ export interface OrderSummaryItemOption {
     content: ReactNode;
 }
 
-const OrderSummaryItemBackorderDetails = ({ item, isExpanded }: { item: OrderSummaryItemProps; isExpanded: boolean }) => {
+const OrderSummaryItemBackorderDetails = ({ isExpanded, quantityBackordered, quantityOnHand, backorderMessage }: { isExpanded: boolean, quantityBackordered?: number, quantityOnHand?: number, backorderMessage?: string }) => {
     const backorderDetailsRef = useRef<HTMLDivElement>(null);
     const { checkoutState } = useCheckout();
     const config = checkoutState.data.getConfig();
 
-    if (!config?.inventorySettings?.shouldDisplayBackorderMessagesOnStorefront) {
+    const inventorySettings = config?.inventorySettings;
+    const showQuantityOnBackorder = !!inventorySettings?.showQuantityOnBackorder;
+    const showBackorderMessage = !!inventorySettings?.showBackorderMessage;
+    const shouldDisplayBackorderMessagesOnStorefront = !!inventorySettings?.shouldDisplayBackorderMessagesOnStorefront;
+
+    if (!shouldDisplayBackorderMessagesOnStorefront || (!showQuantityOnBackorder && !showBackorderMessage)) {
         return null;
     }
 
-    if (!config?.inventorySettings?.showQuantityOnBackorder && !config?.inventorySettings?.showBackorderMessage) {
-        return null;
-    }
-
-    const { quantityBackordered, quantityOnHand, backorderMessage } = item;
-
-    const shouldDisplayQuantityOnHand = !!config?.inventorySettings?.showQuantityOnBackorder && !!quantityOnHand;
-    const shouldDisplayQuantityOnBackorder = !!config?.inventorySettings?.showQuantityOnBackorder && !!quantityBackordered;
-    const shouldDisplayBackorderMessage = !!config?.inventorySettings?.showBackorderMessage && !!backorderMessage && !!quantityBackordered;
+    const shouldDisplayQuantityOnHand = showQuantityOnBackorder && !!quantityOnHand;
+    const shouldDisplayQuantityOnBackorder = showQuantityOnBackorder && !!quantityBackordered;
+    const shouldDisplayBackorderMessage = showBackorderMessage && !!backorderMessage && !!quantityBackordered;
 
     return (
         <CollapseCSSTransition isVisible={isExpanded} nodeRef={backorderDetailsRef}>
@@ -80,7 +79,7 @@ const OrderSummaryItemBackorderDetails = ({ item, isExpanded }: { item: OrderSum
     );
 };
 
-const OrderSummaryItem: FunctionComponent<Props> = ({
+const OrderSummaryItem: FunctionComponent<OrderSummaryItemProps> = ({
     orderItem,
     shouldExapandBackorderDetails,
 }) => {
@@ -92,6 +91,9 @@ const OrderSummaryItem: FunctionComponent<Props> = ({
         productOptions,
         quantity,
         description,
+        quantityBackordered,
+        quantityOnHand,
+        backorderMessage,
     } = orderItem;
 
     return (
@@ -128,7 +130,7 @@ const OrderSummaryItem: FunctionComponent<Props> = ({
                         {description}
                     </div>
                 )}
-                <OrderSummaryItemBackorderDetails isExpanded={shouldExapandBackorderDetails} item={orderItem} />
+                <OrderSummaryItemBackorderDetails backorderMessage={backorderMessage} isExpanded={shouldExapandBackorderDetails} quantityBackordered={quantityBackordered} quantityOnHand={quantityOnHand} />
             </div>
 
             <div className="product-column product-actions">
