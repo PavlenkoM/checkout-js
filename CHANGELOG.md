@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.747.0](https://github.com/bigcommerce/checkout-js/compare/v1.746.0...v1.747.0) (2026-02-24)
+
+
+### Features
+
+* **checkout:** BACK-330 Apply BO quantities on digital items ([293610c](https://github.com/bigcommerce/checkout-js/commit/293610c0de69606967bff9d82ef1370d70b28766))
+* **checkout:** BACK-330 Apply review comments ([219eec1](https://github.com/bigcommerce/checkout-js/commit/219eec16f6aeacf74b171ae2b31cb65115e1763e))
+* **checkout:** BACK-330 Display backorder details on order summery ([65b2b53](https://github.com/bigcommerce/checkout-js/commit/65b2b53bb0e77f0938b890ef78ba39c472d1b8e0))
+* **checkout:** BACK-330 Respect user-set BO inventory settings ([848414b](https://github.com/bigcommerce/checkout-js/commit/848414b8f4374954b64c591bd6312957d286a25b))
+
+
+### Bug Fixes
+
+* **checkout:** BACK-330 Fix typo ([d07b02a](https://github.com/bigcommerce/checkout-js/commit/d07b02a8c73909a0fad236e53c72b29f51598066))
+
 ## [1.746.0](https://github.com/bigcommerce/checkout-js/compare/v1.745.2...v1.746.0) (2026-02-24)
 
 
