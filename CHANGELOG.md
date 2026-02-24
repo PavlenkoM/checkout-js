@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.746.0](https://github.com/bigcommerce/checkout-js/compare/v1.745.2...v1.746.0) (2026-02-24)
+
+
+### Features
+
+* **payment:** Update Stripe Accordion styling to match ThemeV2 ([2aa9b5f](https://github.com/bigcommerce/checkout-js/commit/2aa9b5fc204e0780481397c0643c91549a16878f))
+
 ### [1.745.2](https://github.com/bigcommerce/checkout-js/compare/v1.745.1...v1.745.2) (2026-02-24)
 
 
