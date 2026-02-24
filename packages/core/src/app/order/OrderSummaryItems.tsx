@@ -106,7 +106,7 @@ const ProductList = ({ items, isExpanded, collapsedLimit, showBackorderDetails }
         <TransitionGroup aria-live="polite" className="productList" component="ul">
             {summaryItems.map(summaryItemProps => (
                 <AnimatedProductItem key={summaryItemProps.id}>
-                    <OrderSummaryItem orderItem={summaryItemProps} shouldExapandBackorderDetails={showBackorderDetails} />
+                    <OrderSummaryItem orderItem={summaryItemProps} shouldExpandBackorderDetails={showBackorderDetails} />
                 </AnimatedProductItem>
             ))}
         </TransitionGroup>

@@ -24,7 +24,7 @@ export interface OrderItemType {
 
 interface OrderSummaryItemProps {
     orderItem: OrderItemType;
-    shouldExapandBackorderDetails: boolean;
+    shouldExpandBackorderDetails: boolean;
 }
 
 export interface OrderSummaryItemOption {
@@ -81,7 +81,7 @@ const OrderSummaryItemBackorderDetails = ({ isExpanded, quantityBackordered, qua
 
 const OrderSummaryItem: FunctionComponent<OrderSummaryItemProps> = ({
     orderItem,
-    shouldExapandBackorderDetails,
+    shouldExpandBackorderDetails,
 }) => {
     const {
         amount,
@@ -130,7 +130,7 @@ const OrderSummaryItem: FunctionComponent<OrderSummaryItemProps> = ({
                         {description}
                     </div>
                 )}
-                <OrderSummaryItemBackorderDetails backorderMessage={backorderMessage} isExpanded={shouldExapandBackorderDetails} quantityBackordered={quantityBackordered} quantityOnHand={quantityOnHand} />
+                <OrderSummaryItemBackorderDetails backorderMessage={backorderMessage} isExpanded={shouldExpandBackorderDetails} quantityBackordered={quantityBackordered} quantityOnHand={quantityOnHand} />
             </div>
 
             <div className="product-column product-actions">

@@ -30,7 +30,7 @@ describe('OrderSummaryItem', () => {
                         ],
                         quantity: 2,
                     }}
-                    shouldExapandBackorderDetails={false}
+                    shouldExpandBackorderDetails={false}
                 />,
             );
 
@@ -47,7 +47,7 @@ describe('OrderSummaryItem', () => {
             render(
                 <OrderSummaryItem
                     orderItem={{ amount: 10, id: 'foo', name: 'Product', quantity: 2 }}
-                    shouldExapandBackorderDetails={false}
+                    shouldExpandBackorderDetails={false}
                 />,
             );
 
@@ -67,7 +67,7 @@ describe('OrderSummaryItem', () => {
                         name: 'Product',
                         quantity: 2,
                     }}
-                    shouldExapandBackorderDetails={false}
+                    shouldExpandBackorderDetails={false}
                 />
             );
 
@@ -87,7 +87,7 @@ describe('OrderSummaryItem', () => {
                         name: 'Product',
                         quantity: 2,
                     }}
-                    shouldExapandBackorderDetails={false}
+                    shouldExpandBackorderDetails={false}
                 />
             );
 
