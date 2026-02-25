@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.748.0](https://github.com/bigcommerce/checkout-js/compare/v1.747.0...v1.748.0) (2026-02-25)
+
+
+### Features
+
+* **checkout:** CHECKOUT-9783 Add transition to summary drawer ([#2849](https://github.com/bigcommerce/checkout-js/issues/2849)) ([612d385](https://github.com/bigcommerce/checkout-js/commit/612d38505ec1cc5160c8c56b3598b10446adec43))
+
 ## [1.747.0](https://github.com/bigcommerce/checkout-js/compare/v1.746.0...v1.747.0) (2026-02-24)
 
 
